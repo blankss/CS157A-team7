@@ -10,7 +10,7 @@ CREATE TABLE `hospibase`.`Patients` (
   `lastName` VARCHAR(45) NOT NULL,
   `medicalHistory` VARCHAR(500) NULL,
   `prescriptions` VARCHAR(50) NULL,
-  `doctorID` VARCHAR(45) NOT NULL,
+  `doctorID` INT NOT NULL,
   `roomNumber` INT NULL,
   `insurance` VARCHAR(45) NULL,
   `hospitalFee` DECIMAL(10,2) NULL,
