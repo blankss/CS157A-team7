@@ -28,7 +28,19 @@
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM hospibase.Patients");
             while (rs.next()) {
-                out.println(rs.getInt(1) + " " + rs.getString(2) + " " + rs.getString(3) + "<br/><br/>");
+                int id = rs.getInt(1);
+                String firstName = rs.getString(2);
+                String lastName = rs.getString(3);
+                String medicalHistory = rs.getString(4);
+                String prescriptions = rs.getString(5);
+                int doctor = rs.getInt(6);
+                int room = rs.getInt(7);
+                String insurance = rs.getString(8);
+                double fee = rs.getDouble(9);
+
+                out.println(id + " " + firstName + " " + lastName + " " + medicalHistory + " "
+                    + prescriptions + " " + doctor + " " + room + " " + insurance + " " + fee +
+                  " <br/><br/>");
             }
             rs.close();
             stmt.close();
