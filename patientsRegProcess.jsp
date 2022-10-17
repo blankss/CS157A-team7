@@ -24,8 +24,10 @@
 
             //TODO redirect to patient registration HTML form again if username exists already
 
+            //TODO automatically assign to doctor that has the least number of 
+
             //don't forget that VALUES you need single quotes to denote variable name
-            int res = stmt.executeUpdate("INSERT INTO UserAccounts(firstName,lastName,username,password) VALUES('" + firstNameParam + "','" + lastNameParam + "','" + usernameParam + "','" + passwordParam + "')");
+            int res = stmt.executeUpdate("INSERT INTO Patients(firstName,lastName,username,password) VALUES('" + firstNameParam + "','" + lastNameParam + "','" + usernameParam + "','" + passwordParam + "')");
             out.println("Successful registration");
             stmt.close();
             con.close();
