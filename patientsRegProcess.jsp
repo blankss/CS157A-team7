@@ -1,10 +1,10 @@
 <%@ page import="java.sql.*"%>
 <html>
   <head>
-    <title>AllDoctors</title>
+    <title>Patient Registration</title>
     </head>
   <body>
-    <h1>Doctors Database View</h1>
+    <h1>Registration Form</h1>
     
     <% 
      String db = "hospibase";
@@ -21,7 +21,11 @@
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hospibase", user, passwordDB);
             Statement stmt = con.createStatement();
-            int i = stmt.executeUpdate("INSERT INTO UserAccounts(firstName,lastName,username,password) VALUES('" + firstNameParam + "','" + lastNameParam + "','" + usernameParam + "','" + passwordParam + "')");
+
+            //TODO redirect to patient registration HTML form again if username exists already
+
+            //don't forget that VALUES you need single quotes to denote variable name
+            int res = stmt.executeUpdate("INSERT INTO UserAccounts(firstName,lastName,username,password) VALUES('" + firstNameParam + "','" + lastNameParam + "','" + usernameParam + "','" + passwordParam + "')");
             out.println("Successful registration");
             stmt.close();
             con.close();
