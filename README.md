@@ -43,3 +43,12 @@ INSERT INTO `hospibase`.`Doctors` (`idDoctors`, `firstName`, `lastName`, `patien
 
 INSERT INTO `hospibase`.`Doctors` (`idDoctors`, `firstName`, `lastName`, `patientIDs`, `salary`) VALUES ('3', 'Bill', 'N', '4', '210000');
 
+  ### DB creation for user accounts table
+CREATE TABLE `hospibase`.`UserAccounts` (
+  `username` VARCHAR(45) NOT NULL,
+  `firstName` VARCHAR(45) NULL,
+  `lastName` VARCHAR(45) NULL,
+  `password` VARCHAR(45) NULL,
+  PRIMARY KEY (`username`));
+
+
