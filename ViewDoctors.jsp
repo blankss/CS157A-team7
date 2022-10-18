@@ -10,7 +10,8 @@
      String db = "hospibase";
         String user; // assumes database name is the same as username
           user = "root";
-        String password = "root";
+        //String password = "root";
+        String password = "Anshul02";
         try {
             
             java.sql.Connection con; 
@@ -24,11 +25,11 @@
             out.write("<table border=\"1\">");
 
             out.write("<tr>");
-              out.write("<th>Doctor ID</th>");
-              out.write("<th>First Name</th>");
-              out.write("<th>Last Name</th>");
-              out.write("<th>Patient ID's</th>");
-              out.write("<th>Salary</th>");
+            out.write("<th></th>");
+            out.write("<th>First Name</th>");
+            out.write("<th>Last Name</th>");
+            out.write("<th>Patient ID's</th>");
+            out.write("<th>Salary</th>");
             out.write("<tr>");
 
             while (rs.next()) {
