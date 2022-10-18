@@ -40,6 +40,9 @@ ALTER TABLE `hospibase`.`Patients`
 ADD COLUMN `username` VARCHAR(45) NOT NULL AFTER `hospitalFee`,
 ADD COLUMN `password` VARCHAR(45) NOT NULL AFTER `username`;
 
+ALTER TABLE `hospibase`.`Patients` 
+CHANGE COLUMN `medicalHistory` `medicalIssues` VARCHAR(500) NULL DEFAULT NULL ;
+
 UPDATE `hospibase`.`Patients` SET `username` = 'bobs', `password` = 'bobby123' WHERE (`idPatients` = '1');
 UPDATE `hospibase`.`Patients` SET `username` = 'jsmith', `password` = 'johnsmith1' WHERE (`idPatients` = '2');
 UPDATE `hospibase`.`Patients` SET `username` = 'jdoe', `password` = 'strongpass' WHERE (`idPatients` = '3');
@@ -53,13 +56,3 @@ INSERT INTO `hospibase`.`Doctors` (`idDoctors`, `firstName`, `lastName`, `patien
 INSERT INTO `hospibase`.`Doctors` (`idDoctors`, `firstName`, `lastName`, `patientIDs`, `salary`) VALUES ('2', 'Bob', 'Bobs', '2, 5', '200000');
 
 INSERT INTO `hospibase`.`Doctors` (`idDoctors`, `firstName`, `lastName`, `patientIDs`, `salary`) VALUES ('3', 'Bill', 'N', '4', '210000');
-
-  ### DB creation for user accounts table
-CREATE TABLE `hospibase`.`UserAccounts` (
-  `username` VARCHAR(45) NOT NULL,
-  `firstName` VARCHAR(45) NULL,
-  `lastName` VARCHAR(45) NULL,
-  `password` VARCHAR(45) NULL,
-  PRIMARY KEY (`username`));
-
-
