@@ -24,24 +24,27 @@
             out.write("<table border=\"1\">");
 
             out.write("<tr>");
+                out.write("<th>transaction</th>");
                 out.write("<th>patient_id</th>");
-                out.write("<th>allergies</th>");
-                out.write("<th>surgeries</th>");
-                out.write("<th>family_history</th>");
-                out.write("<th>medications</th>");
-                out.write("<th>illnesses</th>");
+                out.write("<th>patient_income</th>");
+                out.write("<th>equipment_id</th>");
+                out.write("<th>equipment_expenditure</th>");
+                out.write("<th>maintenance_expenditure</th>");
+                out.write("<th>staff_expenditure</th>");
+                out.write("<th>government_income</th>");
+                out.write("<th>balance</th>");
             out.write("<tr>");
 
             while (rs.next()) {
                 int transaction = rs.getInt(1);
                 int patient_id = rs.getInt(2);
-                double patient_income = rs.getDouble(2);
-                int equipment_id = rs.getInt(3);
-                double equipment_expenditure = rs.getDouble(4);
-                double maintenance_expenditure = rs.getDouble(5);
-                double staff_expenditure = rs.getDouble(6);
-                double government_income = rs.getDouble(7);
-                double balance = rs.getDouble(8);
+                double patient_income = rs.getDouble(3);
+                int equipment_id = rs.getInt(4);
+                double equipment_expenditure = rs.getDouble(5);
+                double maintenance_expenditure = rs.getDouble(6);
+                double staff_expenditure = rs.getDouble(7);
+                double government_income = rs.getDouble(8);
+                double balance = rs.getDouble(9);
 
                 out.write("<tr>");
                   out.write("<td>" + transaction + "</td>");
