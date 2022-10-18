@@ -24,6 +24,34 @@ CREATE TABLE `hospibase`.`Doctors` (
   `salary` DECIMAL(10,2) NULL,
   PRIMARY KEY (`idDoctors`));
 
+CREATE TABLE `hospibase`.`MedicalHistory` (
+  `patient_id` INT NOT NULL,
+  `allergies` VARCHAR(45) NULL,
+  `surgeries` VARCHAR(45) NULL,
+  `family_history` VARCHAR(45) NULL,
+  `medications` VARCHAR(45) NULL,
+  `illnesses` VARCHAR(45) NULL,
+  PRIMARY KEY (`patient_id`));
+
+CREATE TABLE `hospibase`.`HospitalFinance` (
+`transaction` INT NOT NULL,
+`patient_id` INT NULL,
+`patient_income` DECIMAL(65,2) NULL,
+`equipment_id` INT NULL,
+`equipment_expenditure` DECIMAL(65,2) NULL,
+`maintenance_expenditure` DECIMAL(65,2) NULL,
+`staff_expenditure` DECIMAL(65,2) NULL,
+`government_income` DECIMAL(65,2) NULL,
+`balance` DECIMAL(65,2) NULL,
+PRIMARY KEY (`transaction`));
+
+CREATE TABLE `hospibase`.`Healthplans` (
+  `patient_id` INT NOT NULL,
+  `insurance` VARCHAR(45) NULL,
+  `deductible` DECIMAL(65,2) NULL,
+  `allowable cost` DECIMAL(65,2) NULL,
+  PRIMARY KEY (`patient_id`));
+=======
 CREATE TABLE `hospibase`.`appointment` (
   `appointmentID` int NOT NULL,
   `patientID` int DEFAULT NULL,
@@ -51,8 +79,7 @@ CREATE TABLE `hospibase`.`appointment` (
   PRIMARY KEY (`roomNumber`),
   UNIQUE KEY `roomNumber_UNIQUE` (`roomNumber`));
 
-
-  ### Dummy data for patients 
+### Dummy data for patients 
 INSERT INTO `hospibase`.`Patients` (`idPatients`, `firstName`, `lastName`, `medicalHistory`, `prescriptions`, `doctorID`, `insurance`, `hospitalFee`) VALUES ('1', 'Bob', 'Bobby', 'Headache', 'OTC advil', '1', 'Blue Shield', '5.00');
 
 INSERT INTO `hospibase`.`Patients` (`idPatients`, `firstName`, `lastName`, `medicalHistory`, `prescriptions`, `doctorID`, `insurance`, `hospitalFee`) VALUES ('2', 'John', 'Smith', 'Diabetes', 'insulin', '2', 'Covered California', '35.78');
@@ -84,6 +111,64 @@ INSERT INTO `hospibase`.`Doctors` (`idDoctors`, `firstName`, `lastName`, `patien
 
 INSERT INTO `hospibase`.`Doctors` (`idDoctors`, `firstName`, `lastName`, `patientIDs`, `salary`) VALUES ('3', 'Bill', 'N', '4', '210000');
 
+### Dummy data for MedicalHistory
+INSERT INTO hospibase.MedicalHistory 
+(patient_id, allergies, surgeries, family_history, medications, illnesses)
+VALUES ('1', 'pollen', 'kneecap surgery', 'diabetes', 'OTC advil', NULl);
+
+INSERT INTO hospibase.MedicalHistory 
+(patient_id, allergies, surgeries, family_history, medications, illnesses)
+VALUES ('2', 'bee venom', NULL, 'baldness', 'Amlodipine', 'fevers every winter');
+
+INSERT INTO hospibase.MedicalHistory 
+(patient_id, allergies, surgeries, family_history, medications, illnesses)
+VALUES ('3', NULL, 'wrist surgery', 'cancer', 'cancer', NULl);
+
+INSERT INTO hospibase.MedicalHistory 
+(patient_id, allergies, surgeries, family_history, medications, illnesses)
+VALUES ('4', 'stroke', 'eye surgery', 'stroke', 'atorvastatin', 'cholera');
+
+INSERT INTO hospibase.MedicalHistory 
+(patient_id, allergies, surgeries, family_history, medications, illnesses)
+VALUES (‘5’, NULL, NULL, NULL, NULL, NULL);
+
+### Dummy data for Hospital Finance
+INSERT INTO `hospibase`.`HospitalFinance`
+(`transaction`,`patient_id`,`patient_income`,`equipment_id`,`equipment_expenditure`,`maintenance_expenditure`,`staff_expenditure`,
+`government_income`,`balance`)
+VALUES
+(1, NULL, NULL, NULL, NULL, NULL, NULL, 8100000.67, 0);
+
+INSERT INTO `hospibase`.`HospitalFinance`
+(`transaction`,`patient_id`,`patient_income`,`equipment_id`,`equipment_expenditure`,`maintenance_expenditure`,`staff_expenditure`,
+`government_income`,`balance`)
+VALUES
+(2, NULL, NULL, NULL, 1, 16528.54, NULL, NULL, 8100000.67);
+
+INSERT INTO `hospibase`.`HospitalFinance`
+(`transaction`,`patient_id`,`patient_income`,`equipment_id`,`equipment_expenditure`,`maintenance_expenditure`,`staff_expenditure`,
+`government_income`,`balance`)
+VALUES
+(3, NULL, 2, 803.53, NULL, NULL, 203.21, NULL, 8100000.67);
+
+### Dummy date for Healthplans
+
+INSERT INTO `hospibase`.`Healthplans`
+(`patient_id`,`insurance`,`deductible`,`allowable cost`)
+VALUES (1,"Blue Shield",20,200);
+
+INSERT INTO `hospibase`.`Healthplans`
+(`patient_id`,`insurance`,`deductible`,`allowable cost`)
+VALUES (2,"Covered California",50,800);
+
+INSERT INTO `hospibase`.`Healthplans`
+(`patient_id`,`insurance`,`deductible`,`allowable cost`)
+VALUES (3,"Blue Shield",90,400);
+
+INSERT INTO `hospibase`.`Healthplans`
+(`patient_id`,`insurance`,`deductible`,`allowable cost`)
+VALUES (5,"Blue Shield",30,250);
+
   ### Dummy data for appointment
 INSERT INTO `hospibase`.`Appointment` (`appointmentID`, `patientID`, `patientName`, `doctorID`, `doctorName`, `startTime`, `endTime`) VALUES (1,1,'Bob Bobby',1,'Stephen Strange','09:00:00','10:00:00');
 
@@ -99,8 +184,3 @@ INSERT INTO `hospibase`.`Medication` (`medicine`, `brand`, `medDescription`) VAL
 INSERT INTO `hospibase`.`hospitalrooms` (`roomNumber`, `patientID`, `firstName`, `lastName`) VALUES (101,5,'Johnny', 'S.');
 
 INSERT INTO `hospibase`.`hospitalrooms` (`roomNumber`, `patientID`, `firstName`, `lastName`) VALUES (210,4,'Sarah', 'Tri');
-
-
-
-
-
