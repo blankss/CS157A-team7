@@ -23,6 +23,14 @@
             ResultSet rs = stmt.executeQuery("SELECT * " +
               "FROM Patients " + 
               "WHERE username = '" + usernameParam + "' AND password = '" + passwordParam + "'");
+
+
+            if (!rs.isBeforeFirst()) {
+              out.write("<html><body><script>alert('Username/Password incorrect')</script></body></html>");
+              out.write("Username/Password incorrect, please try again: <a href='patientLogin.html'>Login</a>");
+              return;
+            }
+
             rs.next();
             if (rs.getString("username").equals(usernameParam) && rs.getString("password").equals(passwordParam)) {
               int id = rs.getInt(1);
