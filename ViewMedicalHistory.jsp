@@ -18,7 +18,7 @@
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hospibase", user, password);
             out.println(db + " database successfully opened.<br/><br/>");
             
-            out.println("Initial entries in table \"MedicalHistories\": <br/>");
+            out.println("Initial entries in table \"MedicalHistory\": <br/>");
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM hospibase.MedicalHistory");
             out.write("<table border=\"1\">");
