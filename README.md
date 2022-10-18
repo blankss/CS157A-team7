@@ -36,10 +36,23 @@ INSERT INTO `hospibase`.`Patients` (`idPatients`, `firstName`, `lastName`, `medi
 
 INSERT INTO `hospibase`.`Patients` (`idPatients`, `firstName`, `lastName`, `medicalHistory`, `prescriptions`, `doctorID`, `roomNumber`, `insurance`, `hospitalFee`) VALUES ('5', 'Johnny', 'S.', 'Lung cancer', 'Afinitor', '2', '1', 'Blue Shield', '800.50');
 
+ALTER TABLE `hospibase`.`Patients` 
+ADD COLUMN `username` VARCHAR(45) NOT NULL AFTER `hospitalFee`,
+ADD COLUMN `password` VARCHAR(45) NOT NULL AFTER `username`;
+
+ALTER TABLE `hospibase`.`Patients` 
+CHANGE COLUMN `medicalHistory` `medicalIssues` VARCHAR(500) NULL DEFAULT NULL ;
+
+UPDATE `hospibase`.`Patients` SET `username` = 'bobs', `password` = 'bobby123' WHERE (`idPatients` = '1');
+UPDATE `hospibase`.`Patients` SET `username` = 'jsmith', `password` = 'johnsmith1' WHERE (`idPatients` = '2');
+UPDATE `hospibase`.`Patients` SET `username` = 'jdoe', `password` = 'strongpass' WHERE (`idPatients` = '3');
+UPDATE `hospibase`.`Patients` SET `username` = 'tri', `password` = 'password' WHERE (`idPatients` = '4');
+UPDATE `hospibase`.`Patients` SET `username` = 'silver', `password` = 'password' WHERE (`idPatients` = '5');
+
+
   ### Dummy data for doctors
 INSERT INTO `hospibase`.`Doctors` (`idDoctors`, `firstName`, `lastName`, `patientIDs`, `salary`) VALUES ('1', 'Stephen', 'Strange', '1, 3', '250000.54');
 
 INSERT INTO `hospibase`.`Doctors` (`idDoctors`, `firstName`, `lastName`, `patientIDs`, `salary`) VALUES ('2', 'Bob', 'Bobs', '2, 5', '200000');
 
 INSERT INTO `hospibase`.`Doctors` (`idDoctors`, `firstName`, `lastName`, `patientIDs`, `salary`) VALUES ('3', 'Bill', 'N', '4', '210000');
-
