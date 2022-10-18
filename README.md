@@ -24,6 +24,33 @@ CREATE TABLE `hospibase`.`Doctors` (
   `salary` DECIMAL(10,2) NULL,
   PRIMARY KEY (`idDoctors`));
 
+CREATE TABLE `hospibase`.`appointment` (
+  `appointmentID` int NOT NULL,
+  `patientID` int DEFAULT NULL,
+  `patientName` varchar(45) DEFAULT NULL,
+  `doctorID` int DEFAULT NULL,
+  `doctorName` varchar(45) DEFAULT NULL,
+  `startTime` time DEFAULT NULL,
+  `endTime` time DEFAULT NULL,
+  PRIMARY KEY (`appointmentID`),
+  UNIQUE KEY `appointmentID_UNIQUE` (`appointmentID`));  
+  
+ CREATE TABLE `hospibase`.`medication` (
+  `medicine` varchar(45) NOT NULL,
+  `brand` varchar(45) NOT NULL,
+  `medDescription` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`medicine`),
+  UNIQUE KEY `medicine_UNIQUE` (`medicine`),
+  UNIQUE KEY `brand_UNIQUE` (`brand`));
+  
+ CREATE TABLE `hospibase`.`HospitalRooms` (
+  `roomNumber` int NOT NULL,
+  `patientID` int DEFAULT NULL,
+  `firstName` varchar(45) DEFAULT NULL,
+  `lastName` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`roomNumber`),
+  UNIQUE KEY `roomNumber_UNIQUE` (`roomNumber`));
+
 
   ### Dummy data for patients 
 INSERT INTO `hospibase`.`Patients` (`idPatients`, `firstName`, `lastName`, `medicalHistory`, `prescriptions`, `doctorID`, `insurance`, `hospitalFee`) VALUES ('1', 'Bob', 'Bobby', 'Headache', 'OTC advil', '1', 'Blue Shield', '5.00');
@@ -56,3 +83,24 @@ INSERT INTO `hospibase`.`Doctors` (`idDoctors`, `firstName`, `lastName`, `patien
 INSERT INTO `hospibase`.`Doctors` (`idDoctors`, `firstName`, `lastName`, `patientIDs`, `salary`) VALUES ('2', 'Bob', 'Bobs', '2, 5', '200000');
 
 INSERT INTO `hospibase`.`Doctors` (`idDoctors`, `firstName`, `lastName`, `patientIDs`, `salary`) VALUES ('3', 'Bill', 'N', '4', '210000');
+
+  ### Dummy data for appointment
+INSERT INTO `hospibase`.`Appointment` (`appointmentID`, `patientID`, `patientName`, `doctorID`, `doctorName`, `startTime`, `endTime`) VALUES (1,1,'Bob Bobby',1,'Stephen Strange','09:00:00','10:00:00');
+
+  ### Dummy data for medication
+INSERT INTO `hospibase`.`Medication` (`medicine`, `brand`, `medDescription`) VALUES ('Atenolol','Tenormin','beta blockers used to treat high blood pressure and chest pain');
+
+INSERT INTO `hospibase`.`Medication` (`medicine`, `brand`, `medDescription`) VALUES ('Everolimus','Afinitor','chemotherapy cancer treatment');
+
+INSERT INTO `hospibase`.`Medication` (`medicine`, `brand`, `medDescription`) VALUES ('Ibuprofen','Advil','nonsteroidal anti-inflammatory drug (NSAID) used to treat mild to moderate pain');
+
+
+  ### Dummy data for hospital rooms
+INSERT INTO `hospibase`.`hospitalrooms` (`roomNumber`, `patientID`, `firstName`, `lastName`) VALUES (101,5,'Johnny', 'S.');
+
+INSERT INTO `hospibase`.`hospitalrooms` (`roomNumber`, `patientID`, `firstName`, `lastName`) VALUES (210,4,'Sarah', 'Tri');
+
+
+
+
+
