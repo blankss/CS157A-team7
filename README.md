@@ -1,6 +1,8 @@
 # CS157A-team7
 
-## Create needed schema and tables using the following MySQL DDL statements
+##Code Review 1: Login and registration barebones complete. Search in progress. Temporarily created most of tables needed for project.
+
+## Temporarily create needed schema and tables using the following MySQL DDL statements
 
 CREATE SCHEMA `hospibase` ;
 
