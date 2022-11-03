@@ -108,3 +108,34 @@ INSERT INTO `hospibase`.`Patient` (`idPatient`, `firstName`, `lastName`, `phoneN
 INSERT INTO `hospibase`.`Patient` (`idPatient`, `firstName`, `lastName`, `phoneNumber`, `dateOfBirth`, `username`, `password`, `idPatientDoctor`, `idPlan`, `idMedication`) VALUES ('8', 'Joshua', 'Gonzales', '1505384656', '1990-01-29', 'joshin', 'fT&295', '9', '1005', '1');
 INSERT INTO `hospibase`.`Patient` (`idPatient`, `firstName`, `lastName`, `phoneNumber`, `dateOfBirth`, `username`, `password`, `idPatientDoctor`, `idPlan`, `idMedication`) VALUES ('9', 'Alan', 'Nora', '1572369357', '1995-09-05', 'noalan', 'EhouSt', '1', '1007', '7');
 INSERT INTO `hospibase`.`Patient` (`idPatient`, `firstName`, `lastName`, `phoneNumber`, `dateOfBirth`, `username`, `password`, `idPatientDoctor`, `idPlan`, `idMedication`) VALUES ('10', 'Nicholas', 'June', '8452755099', '1991-10-16', 'captnick', 'blitNE', '6', '1002', '5');
+
+CREATE TABLE `hospibase`.`Appointment` (
+  `idAppointment` INT NOT NULL AUTO_INCREMENT,
+  `patientName` VARCHAR(80) NULL,
+  `appointmentDateTime` DATETIME NULL,
+  `idPatient` INT NULL,
+  `idAppointmentDoctor` INT NULL,
+  PRIMARY KEY (`idAppointment`),
+  INDEX `idPatient_idx` (`idPatient` ASC) VISIBLE,
+  INDEX `idDoctor_idx` (`idAppointmentDoctor` ASC) VISIBLE,
+  CONSTRAINT `idAppointmentDoctor`
+    FOREIGN KEY (`idAppointmentDoctor`)
+    REFERENCES `hospibase`.`Doctor` (`idDoctor`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `idPatient`
+    FOREIGN KEY (`idPatient`)
+    REFERENCES `hospibase`.`Patient` (`idPatient`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
+INSERT INTO `hospibase`.`Appointment` (`idAppointment`, `patientName`, `appointmentDateTime`, `idPatient`, `idAppointmentDoctor`) VALUES ('1', 'Natalie Kora', '2022-10-10 12:00:00', '1', '1');
+INSERT INTO `hospibase`.`Appointment` (`idAppointment`, `patientName`, `appointmentDateTime`, `idPatient`, `idAppointmentDoctor`) VALUES ('2', 'Amy Sanchez', '2022-10-10 12:30:00', '2', '1');
+INSERT INTO `hospibase`.`Appointment` (`idAppointment`, `patientName`, `appointmentDateTime`, `idPatient`, `idAppointmentDoctor`) VALUES ('3', 'Ivy Noel', '2022-10-12 13:15:00', '3', '2');
+INSERT INTO `hospibase`.`Appointment` (`idAppointment`, `patientName`, `appointmentDateTime`, `idPatient`, `idAppointmentDoctor`) VALUES ('4', 'Eli Sanchez', '2022-10-14 15:30:00', '4', '3');
+INSERT INTO `hospibase`.`Appointment` (`idAppointment`, `patientName`, `appointmentDateTime`, `idPatient`, `idAppointmentDoctor`) VALUES ('5', 'Richard Nelson', '2022-10-14 16:00:00', '5', '5');
+INSERT INTO `hospibase`.`Appointment` (`idAppointment`, `patientName`, `appointmentDateTime`, `idPatient`, `idAppointmentDoctor`) VALUES ('6', 'Nicholas June', '2022-10-18 14:45:00', '10', '6');
+INSERT INTO `hospibase`.`Appointment` (`idAppointment`, `patientName`, `appointmentDateTime`, `idPatient`, `idAppointmentDoctor`) VALUES ('7', 'Natalie Kora', '2022-10-19 12:00:00', '1', '1');
+INSERT INTO `hospibase`.`Appointment` (`idAppointment`, `patientName`, `appointmentDateTime`, `idPatient`, `idAppointmentDoctor`) VALUES ('8', 'Joshua Gonzales', '2022-10-20 15:45:00', '8', '9');
+INSERT INTO `hospibase`.`Appointment` (`idAppointment`, `patientName`, `appointmentDateTime`, `idPatient`, `idAppointmentDoctor`) VALUES ('9', 'Freya Kora', '2022-10-24 16:30:00', '6', '7');
+INSERT INTO `hospibase`.`Appointment` (`idAppointment`, `patientName`, `appointmentDateTime`, `idPatient`, `idAppointmentDoctor`) VALUES ('10', 'Alan Nora', '2022-10-31 13:45:00', '9', '1');
