@@ -109,6 +109,17 @@ INSERT INTO `hospibase`.`Patient` (`idPatient`, `firstName`, `lastName`, `phoneN
 INSERT INTO `hospibase`.`Patient` (`idPatient`, `firstName`, `lastName`, `phoneNumber`, `dateOfBirth`, `username`, `password`, `idPatientDoctor`, `idPlan`, `idMedication`) VALUES ('9', 'Alan', 'Nora', '1572369357', '1995-09-05', 'noalan', 'EhouSt', '1', '1007', '7');
 INSERT INTO `hospibase`.`Patient` (`idPatient`, `firstName`, `lastName`, `phoneNumber`, `dateOfBirth`, `username`, `password`, `idPatientDoctor`, `idPlan`, `idMedication`) VALUES ('10', 'Nicholas', 'June', '8452755099', '1991-10-16', 'captnick', 'blitNE', '6', '1002', '5');
 
+UPDATE `hospibase`.`Patient` SET `dateOfBirth` = '1952-08-01 01:043:10' WHERE (`idPatient` = '1');
+UPDATE `hospibase`.`Patient` SET `dateOfBirth` = '2001-05-18 12:14:09' WHERE (`idPatient` = '2');
+UPDATE `hospibase`.`Patient` SET `dateOfBirth` = '1983-06-20 10:04:56' WHERE (`idPatient` = '3');
+UPDATE `hospibase`.`Patient` SET `dateOfBirth` = '1984-08-17 11:56:34' WHERE (`idPatient` = '4');
+UPDATE `hospibase`.`Patient` SET `dateOfBirth` = '2002-12-13 23:45:00' WHERE (`idPatient` = '5');
+UPDATE `hospibase`.`Patient` SET `dateOfBirth` = '1980-09-30 23:59:00' WHERE (`idPatient` = '6');
+UPDATE `hospibase`.`Patient` SET `dateOfBirth` = '1999-07-05 12:12:43' WHERE (`idPatient` = '7');
+UPDATE `hospibase`.`Patient` SET `dateOfBirth` = '1990-01-29 12:12:12' WHERE (`idPatient` = '8');
+UPDATE `hospibase`.`Patient` SET `dateOfBirth` = '1995-09-05 01:23:32' WHERE (`idPatient` = '9');
+UPDATE `hospibase`.`Patient` SET `dateOfBirth` = '1991-10-16 03:45:31' WHERE (`idPatient` = '10');
+
 CREATE TABLE `hospibase`.`Appointment` (
   `idAppointment` INT NOT NULL AUTO_INCREMENT,
   `patientName` VARCHAR(80) NULL,
