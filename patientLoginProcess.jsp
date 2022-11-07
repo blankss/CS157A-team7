@@ -55,7 +55,7 @@
               out.write("<input type=button onClick=parent.open('/appointmentsPatient.html') value='Make An Appointment'>");
 
               out.write("<table border=\"1\">");
-
+              
               out.write("<tr>");
                 out.write("<th>Patient ID</th>");
                 out.write("<th>First Name</th>");
