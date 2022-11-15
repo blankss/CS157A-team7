@@ -40,9 +40,11 @@
               String doctorLastName = rs.getString("lastName");
               String specialization = rs.getString("specialization");
 
-              ResultSet patients = stmt.executeQuery("SELECT * " +
-                "FROM Patient " + 
-                "WHERE idPatientDoctor = '" + idDoctor + "'");
+              //TODO: implement this with medications when medication info is uploaded
+              ResultSet patients = stmt.executeQuery("SELECT * " + 
+                "FROM `has a` h JOIN  `Medical History` m " + 
+                "ON h.idMedicalHistory = m.idHistory NATURAL JOIN Patient " + 
+                "WHERE idDoctor = '" + idDoctor + "'");
 
               // ArrayList<Integer> idPatientList = new ArrayList<Integer>();
 
@@ -62,6 +64,7 @@
                 out.write("<th>Specialization</th>");
               out.write("<tr>");
 
+
               out.write("<tr>");
                 out.write("<td>" + idDoctor + "</td>");
                 out.write("<td>" + doctorFirstName + "</td>");
@@ -70,6 +73,8 @@
               out.write("</tr>");
 
               out.write("</table>");
+
+              out.write("<br>");
 
               out.write("<table border=\"1\">");
 
@@ -80,49 +85,24 @@
                 out.write("<th>Patient's Medical History</th>");
               out.write("</tr>");
 
-              ResultSet histories = null;
-              ResultSet medicalHistory = null;
-
               while (patients.next()) {
                 out.write("<tr>");
                 out.write("<td>" + patients.getString("firstName") + "</td>");
                 out.write("<td>" + patients.getString("lastName") + "</td>");
                 out.write("<td>" + patients.getInt("idMedication") + "</td>");
 
-                int patientId = patients.getInt("idPatient");
-
-                // out.write("<td>" + patientId + "</td>");
-
-                histories = stmt.executeQuery("SELECT idMedicalHistory " + 
-                  "FROM `has a` " + 
-                  "WHERE idPatient = '" + patientId + "'");
-                while (histories.next()) {
-                  out.write("<td>" + histories.getInt("idMedicalHistory") + "</td>");
-                  histories.close();
-                }
-
-
-                // medicalHistory = stmt.executeQuery("SELECT * " + 
-                //   "FROM `Medical History`"  + 
-                //   "WHERE idHistory = '" + histories.getInt("idMedicalHistory") + "'");
-                // medicalHistory.next();
-
-                // out.write("<td>");
-                // out.write("<ul>");
-                // out.write("<li>Medications: " + medicalHistory.getString("medications") + "</li>");
-                // out.write("<li>Symptoms: " + medicalHistory.getString("symptoms") + "</li>");
-                // out.write("<li>Surgeries: " + medicalHistory.getString("surgeries") + "</li>");
-                // out.write("</ul>");
-                // out.write("</td>");
-
-                // out.write("</tr>");
-
-                // histories.close();
+                out.write("<td>");
+                out.write("<ul>");
+                out.write("<li>Medications: " + patients.getString("medications") + "</li>");
+                out.write("<li>Symptoms: " + patients.getString("symptoms") + "</li>");
+                out.write("<li>Surgeries: " + patients.getString("surgeries") + "</li>");
+                out.write("</ul>");
+                out.write("</td>");
+                out.write("</tr>");
               }
               out.write("</table>");
-              histories.close();
-              // medicalHistory.close();
             }
+            //patients.close();
             rs.close();
             stmt.close();
             con.close();
