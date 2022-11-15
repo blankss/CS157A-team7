@@ -20,6 +20,7 @@
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hospibase", user, passwordDB);
             Statement stmt = con.createStatement();
+            Statement stmt1 = con.createStatement();
 
             ResultSet rs = stmt.executeQuery("SELECT * " +
               "FROM Doctor " + 
@@ -46,13 +47,11 @@
                 "ON h.idMedicalHistory = m.idHistory NATURAL JOIN Patient " + 
                 "WHERE idDoctor = '" + idDoctor + "'");
 
-              // ArrayList<Integer> idPatientList = new ArrayList<Integer>();
+              ResultSet appointments = stmt1.executeQuery("SELECT * " +
+                "FROM Appointment " + 
+                "WHERE idAppointmentDoctor = '" + idDoctor + "'");
 
-              // while (patients.next()) {
-              //   idPatientList.add(patients.getInt("idPatient"));
-              // }
-
-              out.write("<h2>Hello, Dr." + doctorFirstName + "</h2><br>");
+              out.write("<h2>Hello, Dr. " + doctorFirstName + "</h2><br>");
               out.write("<h3>Your Information:</h3><br>");
 
               out.write("<table border=\"1\">");
@@ -83,9 +82,11 @@
                 out.write("<th>Patient's Last Name</th>");
                 out.write("<th>Patient's Medication</th>");
                 out.write("<th>Patient's Medical History</th>");
+                out.write("<th>Appointments</th>");
               out.write("</tr>");
 
               while (patients.next()) {
+                appointments.next();
                 out.write("<tr>");
                 out.write("<td>" + patients.getString("firstName") + "</td>");
                 out.write("<td>" + patients.getString("lastName") + "</td>");
@@ -98,6 +99,12 @@
                 out.write("<li>Surgeries: " + patients.getString("surgeries") + "</li>");
                 out.write("</ul>");
                 out.write("</td>");
+
+                if (patients.getInt("idPatient") == appointments.getInt("idPatient")) {
+                  out.write("<td>" + appointments.getString("patientName") + "<br>");
+                  out.write(appointments.getDate("appointmentDateTime") + "</td><br>");
+                }
+                
                 out.write("</tr>");
               }
               out.write("</table>");
