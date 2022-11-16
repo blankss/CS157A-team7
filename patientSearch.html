@@ -1,16 +1,22 @@
-
-
-
 <!DOCTYPE html>
 <html>
-<title>Search Example</title>
+<title>Patient Search</title>
 <body>
-<div class="container">
-  <form class="form-inline" method="post" action="patientSearchProcess.jsp">
-    <input type="text" class="form-control" placeholder="Search patient using ID">
-    <button type="submit" name="save" class="btn btn-primary">Search</button>
-  </form>
-</div>
-
+  <div class="container">
+       <div class="form-group col-6 p-0">
+           <form id="form" method="post" action="patientSearchProcess.jsp" >
+                 <div class="form-group col-md-6">
+                    <label>Patient ID</label>
+                    <input type="text" name="patientID" idPatient="patientID" placeholder="Patient ID">
+                    <Button class="btn btn-success" style="width: 80px;">Submit</Button>
+                </div>
+                <!--<div class="form-group col-md-6">
+                  <label>Patient Name</label>
+                  <input type="text" name="patientID" class="form-control" firstName="patientID" placeholder="Patient ID">
+                  <Button class="btn btn-success" style="width: 80px;">Submit</Button>
+              </div>-->
+           </form>    
+       </div>
+   </div>  
 </body>
 </html>
