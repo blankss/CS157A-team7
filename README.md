@@ -27,15 +27,15 @@ INSERT INTO `hospibase`.`Doctor` (`idDoctor`, `firstName`, `lastName`, `speciali
 INSERT INTO `hospibase`.`Doctor` (`idDoctor`, `firstName`, `lastName`, `specialization`, `username`, `password`) VALUES ('9', 'Ian', 'June', 'Pathology', 'ijuly', 'SoaGSk');
 INSERT INTO `hospibase`.`Doctor` (`idDoctor`, `firstName`, `lastName`, `specialization`, `username`, `password`) VALUES ('10', 'Tristan', 'Clark', 'Heart surgeon', 'clarkent', 'superman6');
 
-CREATE TABLE `hospibase`.``Health Plan`` (
+CREATE TABLE `hospibase`.`\`Health Plan\`` (
   `idPlan` INT NOT NULL,
   `planName` VARCHAR(45) NULL,
   `planCost` DECIMAL(7,2) NULL,
   PRIMARY KEY (`idPlan`),
   UNIQUE INDEX `planName_UNIQUE` (`planName` ASC) VISIBLE);
 
-INSERT INTO `hospibase`.``Health Plan`` (`idPlan`, `planName`, `planCost`) VALUES ('1001', 'Kaiser', '400.50');
-INSERT INTO `hospibase`.``Health Plan`` (`idPlan`, `planName`, `planCost`) VALUES ('1002', 'Blue Shield', '601.53');
+INSERT INTO `hospibase`.`Health Plan` (`idPlan`, `planName`, `planCost`) VALUES ('1001', 'Kaiser', '400.50');
+INSERT INTO `hospibase`.`Health Plan` (`idPlan`, `planName`, `planCost`) VALUES ('1002', 'Blue Shield', '601.53');
 INSERT INTO `hospibase`.``Health Plan`` (`idPlan`, `planName`, `planCost`) VALUES ('1003', 'Amerigroup', '396.78');
 INSERT INTO `hospibase`.``Health Plan`` (`idPlan`, `planName`, `planCost`) VALUES ('1004', 'Cigna', '485.00');
 INSERT INTO `hospibase`.``Health Plan`` (`idPlan`, `planName`, `planCost`) VALUES ('1005', 'Health Net', '413.54');
