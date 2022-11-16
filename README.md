@@ -27,7 +27,7 @@ INSERT INTO `hospibase`.`Doctor` (`idDoctor`, `firstName`, `lastName`, `speciali
 INSERT INTO `hospibase`.`Doctor` (`idDoctor`, `firstName`, `lastName`, `specialization`, `username`, `password`) VALUES ('9', 'Ian', 'June', 'Pathology', 'ijuly', 'SoaGSk');
 INSERT INTO `hospibase`.`Doctor` (`idDoctor`, `firstName`, `lastName`, `specialization`, `username`, `password`) VALUES ('10', 'Tristan', 'Clark', 'Heart surgeon', 'clarkent', 'superman6');
 
-CREATE TABLE `hospibase`.`\`Health Plan\`` (
+CREATE TABLE `hospibase`.``Health Plan` (
   `idPlan` INT NOT NULL,
   `planName` VARCHAR(45) NULL,
   `planCost` DECIMAL(7,2) NULL,
