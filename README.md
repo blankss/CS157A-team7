@@ -1,9 +1,16 @@
 CREATE SCHEMA hospibase ;
 
+<<<<<<< HEAD
 CREATE TABLE hospibase.Doctor ( idDoctor INT NOT NULL AUTO_INCREMENT, firstName VARCHAR(50) NULL, lastName VARCHAR(50) NULL, specialization VARCHAR(60) NULL, username VARCHAR(45) NULL, password VARCHAR(45) NULL, PRIMARY KEY (idDoctor), UNIQUE INDEX username_UNIQUE (username ASC) VISIBLE);
+=======
+##Code Review 1: Login and registration barebones complete. Search in progress. Temporarily created most of tables needed for project.
+
+## Temporarily create needed schema and tables using the following MySQL DDL statements
+>>>>>>> bcd9ba4eb01515f382592d0a46097c3e9c82d4b7
 
 INSERT INTO hospibase.Doctor (idDoctor, firstName, lastName, specialization, username, password) VALUES ('1', 'Lily', 'Scott', 'Dermatology', 'lilys', 'GzeGjx'); INSERT INTO hospibase.Doctor (idDoctor, firstName, lastName, specialization, username, password) VALUES ('2', 'Katherine', 'Elsher', 'Neurology', 'katherineE', 'DqwxaM'); INSERT INTO hospibase.Doctor (idDoctor, firstName, lastName, specialization, username, password) VALUES ('3', 'Lincoln', 'McKenna', 'Pediatrics', 'lincolnpark', 'Pliigr'); INSERT INTO hospibase.Doctor (idDoctor, firstName, lastName, specialization, username, password) VALUES ('4', 'Trinity', 'Cullen', 'Pediatrics', 'trinitylock', 'cullen1!'); INSERT INTO hospibase.Doctor (idDoctor, firstName, lastName, specialization, username, password) VALUES ('5', 'Alayna', 'Anderson', 'Immunology', 'alaynaology', '8OD1kS'); INSERT INTO hospibase.Doctor (idDoctor, firstName, lastName, specialization, username, password) VALUES ('6', 'Harrison', 'Nora', 'Internal Medicine', 'norasmoke', '0iLtZe'); INSERT INTO hospibase.Doctor (idDoctor, firstName, lastName, specialization, username, password) VALUES ('7', 'Melanie', 'Melenia', 'Internal Medicine', 'malenia', '#shattering'); INSERT INTO hospibase.Doctor (idDoctor, firstName, lastName, specialization, username, password) VALUES ('8', 'Chase', 'Solace', 'Urologist', 'solstice', 'winter4!@'); INSERT INTO hospibase.Doctor (idDoctor, firstName, lastName, specialization, username, password) VALUES ('9', 'Ian', 'June', 'Pathology', 'ijuly', 'SoaGSk'); INSERT INTO hospibase.Doctor (idDoctor, firstName, lastName, specialization, username, password) VALUES ('10', 'Tristan', 'Clark', 'Heart surgeon', 'clarkent', 'superman6');
 
+<<<<<<< HEAD
 CREATE TABLE hospibase.``Health Plan(idPlan` INT NOT NULL, `planName` VARCHAR(45) NULL, `planCost` DECIMAL(7,2) NULL, PRIMARY KEY (`idPlan`), UNIQUE INDEX `planName_UNIQUE` (`planName` ASC) VISIBLE);
 
 INSERT INTO hospibase.Health Plan (idPlan, planName, planCost) VALUES ('1001', 'Kaiser', '400.50'); INSERT INTO hospibase.Health Plan (idPlan, planName, planCost) VALUES ('1002', 'Blue Shield', '601.53'); INSERT INTO hospibase.Health Plan (idPlan, planName, planCost) VALUES ('1003', 'Amerigroup', '396.78'); INSERT INTO hospibase.Health Plan (idPlan, planName, planCost) VALUES ('1004', 'Cigna', '485.00'); INSERT INTO hospibase.Health Plan (idPlan, planName, planCost) VALUES ('1005', 'Health Net', '413.54'); INSERT INTO hospibase.Health Plan (idPlan, planName, planCost) VALUES ('1006', 'Medi-Cal', '487.57'); INSERT INTO hospibase.Health Plan (idPlan, planName, planCost) VALUES ('1007', 'Sutter Health', '418.44'); INSERT INTO hospibase.Health Plan (idPlan, planName, planCost) VALUES ('1008', 'Humana', '644.15'); INSERT INTO hospibase.Health Plan (idPlan, planName, planCost) VALUES ('1009', 'Molina', '352.45'); INSERT INTO hospibase.Health Plan (idPlan, planName, planCost) VALUES ('1010', 'Aetna', '256.2');
@@ -99,14 +106,3 @@ CREATE TABLE `hospibase`.`hasa` (
   CONSTRAINT `idHistory` FOREIGN KEY (`idHistory`) REFERENCES `medicalhistory` (`idhistory`),
   CONSTRAINT `idPatient` FOREIGN KEY (`idPatient`) REFERENCES `patients` (`idPatient`)
 );
-
-INSERT INTO `hospibase`.`hasa` (`idPatient`, `idHistory`) VALUES (1,1);
-INSERT INTO `hospibase`.`hasa` (`idPatient`, `idHistory`) VALUES (2,2);
-INSERT INTO `hospibase`.`hasa` (`idPatient`, `idHistory`) VALUES (3,3);
-INSERT INTO `hospibase`.`hasa` (`idPatient`, `idHistory`) VALUES (4,4);
-INSERT INTO `hospibase`.`hasa` (`idPatient`, `idHistory`) VALUES (5,5);
-INSERT INTO `hospibase`.`hasa` (`idPatient`, `idHistory`) VALUES (6,6);
-INSERT INTO `hospibase`.`hasa` (`idPatient`, `idHistory`) VALUES (7,7);
-INSERT INTO `hospibase`.`hasa` (`idPatient`, `idHistory`) VALUES (8,8);
-INSERT INTO `hospibase`.`hasa` (`idPatient`, `idHistory`) VALUES (9,9);
-INSERT INTO `hospibase`.`hasa` (`idPatient`, `idHistory`) VALUES (10,10);
