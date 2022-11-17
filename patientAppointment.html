@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<title>Appointments Page</title>
+<body>
+	<center><h1>Appointments Form for Patients</h1></center>
+	<form action="appointmentsPatientProcess.jsp" method="POST">
+		<center><label for="patientName">Name:</label></center><br>
+		<center><input type="text" name="patientName"></center><br>
+
+		<center><label for="patientID">Patient ID:</label></center><br>
+		<center><input type="number" name="patientID" min="1"></center><br>
+
+		<center><label for="text">Input Available Date (YYYY-MM-DD HH:MM:SS):</label></center><br>
+		<center><input type="datetime-local" name="appointmentDate"></center><br>
+
+		<center><input type="submit"></center>
+	</form>
+	

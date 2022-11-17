@@ -1,5 +1,7 @@
 <%@ page import="java.sql.*"%>
 <%@ page import="java.util.*"%>
+<%@ page import="java.time.LocalDateTime"%>
+<%@ page import="java.time.format.DateTimeFormatter"%>
 <html>
   <head>
     <title>Patient Login</title>
@@ -82,11 +84,9 @@
                 out.write("<th>Patient's Last Name</th>");
                 out.write("<th>Patient's Medication</th>");
                 out.write("<th>Patient's Medical History</th>");
-                out.write("<th>Appointments</th>");
               out.write("</tr>");
 
               while (patients.next()) {
-                appointments.next();
                 out.write("<tr>");
                 out.write("<td>" + patients.getString("firstName") + "</td>");
                 out.write("<td>" + patients.getString("lastName") + "</td>");
@@ -100,17 +100,31 @@
                 out.write("</ul>");
                 out.write("</td>");
 
-                if (patients.getInt("idPatient") == appointments.getInt("idPatient")) {
-                  out.write("<td>" + appointments.getString("patientName") + "<br>");
-                  out.write(appointments.getDate("appointmentDateTime") + "</td><br>");
-                }
-                
                 out.write("</tr>");
               }
+
               out.write("</table>");
+              out.write("<br>");
+
+              out.write("<table border=\"1\">");
+
+              out.write("<tr>");
+                out.write("<th>Patient's Name</th>");
+                out.write("<th>Appointment Date and Time</th>");
+              out.write("</tr>");
+
+              while (appointments.next()) {
+                out.write("<tr>");
+                out.write("<td>" + appointments.getString("patientName") + "</td>");
+                out.write("<td>" + appointments.getTimestamp("appointmentDateTime") + "</td>");
+                out.write("</tr>");
+              }
+
+              out.write("</table>");
+              patients.close();
+              appointments.close();
+              rs.close();
             }
-            //patients.close();
-            rs.close();
             stmt.close();
             con.close();
         } catch(SQLException e) { 
