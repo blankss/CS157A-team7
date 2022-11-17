@@ -52,7 +52,9 @@
             while (rs.next()) {
               LocalDateTime tmp = rs.getTimestamp("appointmentDateTime").toLocalDateTime();
               int appointmentDoctor = rs.getInt("idAppointmentDoctor");
-              if (tmp.equals(appt) && appointmentDoctor == appointmentDoctor) {
+
+              if (tmp.plusMinutes(20).equals(appt) || tmp.equals(appt) || tmp.minusMinutes(20).equals(appt)
+                && appointmentDoctor == patientDoctor) {
                 out.write("Conflicting appointment time.<br>");
                 out.write("Please try again.<br>");
                 out.write("<a href='appointmentsPatient.html'>AppointmentsPage</a>");
@@ -66,19 +68,20 @@
                 return;
               }
 
-              if (appt.getHour() < 9 || appt.getHour() > 5) {
+              if (appt.getHour() < 9 || appt.getHour() > 17) {
                 out.write("Invalid appointment time, outside working hours.<br>");
                 out.write("Please try again.<br>");
                 out.write("<a href='appointmentsPatient.html'>AppointmentsPage</a>");
                 return;
               }
             }
-  
+            
+            //Primary key for appointment auto increments, so we do not need to insert
             int check = insert.executeUpdate("INSERT INTO Appointment(patientName,appointmentDateTime,idPatient,idAppointmentDoctor)values('"+patientParam+"','"+appt+"','"+idPatient+"','"+patientDoctor+"')");
 
             out.write("<h1>Appointment successfully booked: " + appt.toString() + "<br>");
 
-            idPatient.close();
+            doctors.close();
             rs.close();
             stmt.close();
             stmt1.close();
