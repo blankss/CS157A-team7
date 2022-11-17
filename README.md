@@ -6,7 +6,16 @@ CREATE SCHEMA hospibase ;
 
 CREATE TABLE hospibase.Doctor ( idDoctor INT NOT NULL AUTO_INCREMENT, firstName VARCHAR(50) NULL, lastName VARCHAR(50) NULL, specialization VARCHAR(60) NULL, username VARCHAR(45) NULL, password VARCHAR(45) NULL, PRIMARY KEY (idDoctor), UNIQUE INDEX username_UNIQUE (username ASC) VISIBLE);
 
-INSERT INTO hospibase.Doctor (idDoctor, firstName, lastName, specialization, username, password) VALUES ('1', 'Lily', 'Scott', 'Dermatology', 'lilys', 'GzeGjx'); INSERT INTO hospibase.Doctor (idDoctor, firstName, lastName, specialization, username, password) VALUES ('2', 'Katherine', 'Elsher', 'Neurology', 'katherineE', 'DqwxaM'); INSERT INTO hospibase.Doctor (idDoctor, firstName, lastName, specialization, username, password) VALUES ('3', 'Lincoln', 'McKenna', 'Pediatrics', 'lincolnpark', 'Pliigr'); INSERT INTO hospibase.Doctor (idDoctor, firstName, lastName, specialization, username, password) VALUES ('4', 'Trinity', 'Cullen', 'Pediatrics', 'trinitylock', 'cullen1!'); INSERT INTO hospibase.Doctor (idDoctor, firstName, lastName, specialization, username, password) VALUES ('5', 'Alayna', 'Anderson', 'Immunology', 'alaynaology', '8OD1kS'); INSERT INTO hospibase.Doctor (idDoctor, firstName, lastName, specialization, username, password) VALUES ('6', 'Harrison', 'Nora', 'Internal Medicine', 'norasmoke', '0iLtZe'); INSERT INTO hospibase.Doctor (idDoctor, firstName, lastName, specialization, username, password) VALUES ('7', 'Melanie', 'Melenia', 'Internal Medicine', 'malenia', '#shattering'); INSERT INTO hospibase.Doctor (idDoctor, firstName, lastName, specialization, username, password) VALUES ('8', 'Chase', 'Solace', 'Urologist', 'solstice', 'winter4!@'); INSERT INTO hospibase.Doctor (idDoctor, firstName, lastName, specialization, username, password) VALUES ('9', 'Ian', 'June', 'Pathology', 'ijuly', 'SoaGSk'); INSERT INTO hospibase.Doctor (idDoctor, firstName, lastName, specialization, username, password) VALUES ('10', 'Tristan', 'Clark', 'Heart surgeon', 'clarkent', 'superman6');
+INSERT INTO hospibase.Doctor (idDoctor, firstName, lastName, specialization, username, password) VALUES ('1', 'Lily', 'Scott', 'Dermatology', 'lilys', 'GzeGjx'); 
+INSERT INTO hospibase.Doctor (idDoctor, firstName, lastName, specialization, username, password) VALUES ('2', 'Katherine', 'Elsher', 'Neurology', 'katherineE', 'DqwxaM'); 
+INSERT INTO hospibase.Doctor (idDoctor, firstName, lastName, specialization, username, password) VALUES ('3', 'Lincoln', 'McKenna', 'Pediatrics', 'lincolnpark', 'Pliigr'); 
+INSERT INTO hospibase.Doctor (idDoctor, firstName, lastName, specialization, username, password) VALUES ('4', 'Trinity', 'Cullen', 'Pediatrics', 'trinitylock', 'cullen1!'); 
+INSERT INTO hospibase.Doctor (idDoctor, firstName, lastName, specialization, username, password) VALUES ('5', 'Alayna', 'Anderson', 'Immunology', 'alaynaology', '8OD1kS'); 
+INSERT INTO hospibase.Doctor (idDoctor, firstName, lastName, specialization, username, password) VALUES ('6', 'Harrison', 'Nora', 'Internal Medicine', 'norasmoke', '0iLtZe'); 
+INSERT INTO hospibase.Doctor (idDoctor, firstName, lastName, specialization, username, password) VALUES ('7', 'Melanie', 'Melenia', 'Internal Medicine', 'malenia', '#shattering'); 
+INSERT INTO hospibase.Doctor (idDoctor, firstName, lastName, specialization, username, password) VALUES ('8', 'Chase', 'Solace', 'Urologist', 'solstice', 'winter4!@'); 
+INSERT INTO hospibase.Doctor (idDoctor, firstName, lastName, specialization, username, password) VALUES ('9', 'Ian', 'June', 'Pathology', 'ijuly', 'SoaGSk'); 
+INSERT INTO hospibase.Doctor (idDoctor, firstName, lastName, specialization, username, password) VALUES ('10', 'Tristan', 'Clark', 'Heart surgeon', 'clarkent', 'superman6');
 
 CREATE TABLE hospibase.``Health Plan(idPlan` INT NOT NULL, `planName` VARCHAR(45) NULL, `planCost` DECIMAL(7,2) NULL, PRIMARY KEY (`idPlan`), UNIQUE INDEX `planName_UNIQUE` (`planName` ASC) VISIBLE);
 
@@ -53,25 +62,35 @@ INSERT INTO `hospibase`.`medication` (`idmedication`, `medicationCost`, `quantit
 INSERT INTO `hospibase`.`medication` (`idmedication`, `medicationCost`, `quantity`, `manufacturer`, `idDoctor`, `idPatient`) VALUES (9,105000,40,'Porton Biopharm Limited',3,9);
 INSERT INTO `hospibase`.`medication` (`idmedication`, `medicationCost`, `quantity`, `manufacturer`, `idDoctor`, `idPatient`) VALUES (10,23,230,'Camber Pharma',5,10);
 
-CREATE TABLE `hospibase`.`hospitaladministrators` (
-  `idAdmin` int NOT NULL,
+CREATE TABLE `hospitaladministrators` (
+  `idAdmin` int NOT NULL AUTO_INCREMENT,
   `adminName` varchar(45) DEFAULT NULL,
   `username` varchar(45) DEFAULT NULL,
   `password` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idAdmin`),
   UNIQUE KEY `idAdmin_UNIQUE` (`idAdmin`)
-);
+); 
 
-INSERT INTO `hospibase`.`hospitaladministrators` (`idAdmin`, `adminName`, `username`, `password`) VALUES (1,'Megan','mesmith01','r@!nydaze112');
-INSERT INTO `hospibase`.`hospitaladministrators` (`idAdmin`, `adminName`, `username`, `password`) VALUES (2,'Travis','trlee48','n0tn(_)1l');
-INSERT INTO `hospibase`.`hospitaladministrators` (`idAdmin`, `adminName`, `username`, `password`) VALUES (3,'Natalia','narios21','34p!edra');
-INSERT INTO `hospibase`.`hospitaladministrators` (`idAdmin`, `adminName`, `username`, `password`) VALUES (4,'Steven','ststevens01','m0stgo@ts!');
-INSERT INTO `hospibase`.`hospitaladministrators` (`idAdmin`, `adminName`, `username`, `password`) VALUES (5,'Kelvin','keburns68','53degree$');
-INSERT INTO `hospibase`.`hospitaladministrators` (`idAdmin`, `adminName`, `username`, `password`) VALUES (6,'Juan','juhill91','mh@v3is');
-INSERT INTO `hospibase`.`hospitaladministrators` (`idAdmin`, `adminName`, `username`, `password`) VALUES (7,'Noor','noisa29','aren@5h07');
-INSERT INTO `hospibase`.`hospitaladministrators` (`idAdmin`, `adminName`, `username`, `password`) VALUES (8,'Hope','howilliams42','sit30ft3ar5');
-INSERT INTO `hospibase`.`hospitaladministrators` (`idAdmin`, `adminName`, `username`, `password`) VALUES (9,'Esteban','esuribe56','aalmp#72');
-INSERT INTO `hospibase`.`hospitaladministrators` (`idAdmin`, `adminName`, `username`, `password`) VALUES (10,'Drake','drpato57','3/@ding');
+INSERT INTO `hospitaladministrators` VALUES (1,'Megan','mesmith01','r@!nydaze112');
+INSERT INTO `hospitaladministrators` VALUES (2,'Travis','trlee48','n0tn(_)1l');
+INSERT INTO `hospitaladministrators` VALUES (3,'Natalia','narios21','34p!edra');
+INSERT INTO `hospitaladministrators` VALUES (4,'Steven','ststevens01','m0stgo@ts!');
+INSERT INTO `hospitaladministrators` VALUES (5,'Kelvin','keburns68','53degree$');
+INSERT INTO `hospitaladministrators` VALUES (6,'Juan','juhill91','mh@v3is');
+INSERT INTO `hospitaladministrators` VALUES (7,'Noor','noisa29','aren@5h07');
+INSERT INTO `hospitaladministrators` VALUES (8,'Hope','howilliams42','sit30ft3ar5');
+INSERT INTO `hospitaladministrators` VALUES (9,'Esteban','esuribe56','aalmp#72');
+INSERT INTO `hospitaladministrators` VALUES (10,'Drake','drpato57','3/@ding');
+INSERT INTO `hospitaladministrators` VALUES (11,'Lily','lilys','GzeGjx');
+INSERT INTO `hospitaladministrators` VALUES (12,'Katherine','katherineE','DqwxaM');
+INSERT INTO `hospitaladministrators` VALUES (13,'Lincoln','lincolnpark','Pliigr');
+INSERT INTO `hospitaladministrators` VALUES (14,'Trinity','trinitylock','cullen1!');
+INSERT INTO `hospitaladministrators` VALUES (15,'Alayna','alaynaology','8OD1kS');
+INSERT INTO `hospitaladministrators` VALUES (16,'Harrison','norasmoke','0iLtZe');
+INSERT INTO `hospitaladministrators` VALUES (17,'Melanie','malenia','#shattering');
+INSERT INTO `hospitaladministrators` VALUES (18,'Chase','solstice','winter4!@');
+INSERT INTO `hospitaladministrators` VALUES (19,'Ian','ijuly','SoaGSk');
+INSERT INTO `hospitaladministrators` VALUES (20,'Tristan','clarkent','superman6');
 
 CREATE TABLE `hospibase`.`patientbill` (
   `idbill` int NOT NULL,
