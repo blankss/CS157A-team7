@@ -150,3 +150,10 @@ INSERT INTO `hospibase`.`Appointment` (`idAppointment`, `patientName`, `appointm
 INSERT INTO `hospibase`.`Appointment` (`idAppointment`, `patientName`, `appointmentDateTime`, `idPatient`, `idAppointmentDoctor`) VALUES ('8', 'Joshua Gonzales', '2022-10-20 15:45:00', '8', '9');
 INSERT INTO `hospibase`.`Appointment` (`idAppointment`, `patientName`, `appointmentDateTime`, `idPatient`, `idAppointmentDoctor`) VALUES ('9', 'Freya Kora', '2022-10-24 16:30:00', '6', '7');
 INSERT INTO `hospibase`.`Appointment` (`idAppointment`, `patientName`, `appointmentDateTime`, `idPatient`, `idAppointmentDoctor`) VALUES ('10', 'Alan Nora', '2022-10-31 13:45:00', '9', '1');
+
+CREATE TABLE `hospibase`.`HospitalRooms` (
+  `roomNumber` INT NOT NULL,
+  `roomCost` DECIMAL(10,2) NULL,
+  `condition` VARCHAR(45) NULL,
+  PRIMARY KEY (`roomNumber`));
+
