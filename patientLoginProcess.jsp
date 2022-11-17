@@ -19,6 +19,7 @@
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hospibase", user, passwordDB);
             Statement stmt = con.createStatement();
+            Statement stmt1 = con.createStatement();
 
             ResultSet rs = stmt.executeQuery("SELECT * " +
               "FROM Patient " + 
@@ -38,7 +39,7 @@
               String lastName = rs.getString("lastName");
               String phone = rs.getString("phoneNumber");
               String dob = rs.getString("dateOfBirth");
-              int doctor = rs.getInt("idPatientDoctor");
+              int doctor = rs.getInt("idDoctor");
               String insurance = rs.getString("idPlan");
               int medicationId = rs.getInt("idMedication");
 
@@ -46,53 +47,72 @@
                 "FROM Doctor " + 
                 "WHERE idDoctor = '" + doctor + "'"
                 );
+
+              ResultSet appointments = stmt1.executeQuery("SELECT * " + 
+                "FROM Appointment " + 
+                "WHERE idPatient = '" + id + "'");
+
               doctorRS.next();
               String doctorFirstName = doctorRS.getString(1);
               String doctorLastName = doctorRS.getString(2);
 
               out.write("<h2>Hello, " + firstName + "</h2><br>");
               out.write("<input type=button onClick=parent.open('/patientReg.html') value='Payment Page'>");
-              out.write("<input type=button onClick=parent.open('/appointmentsPatient.html') value='Make An Appointment'>");
+              out.write("<input type=button onClick=parent.open('patientAppointment.html') value='Make An Appointment'>");
 
               out.write("<table border=\"1\">");
-              
+
               out.write("<tr>");
-                out.write("<th>Patient ID</th>");
-                out.write("<th>First Name</th>");
-                out.write("<th>Last Name</th>");
-                out.write("<th>Phone</th>");
-                out.write("<th>Date Of Birth</th>");
-                out.write("<th>Doctor</th>");
-                out.write("<th>Insurance</th>");
-                out.write("<th>Medication</th>");
-                out.write("<th>Room</th>");
+              out.write("<th>Patient ID</th>");
+              out.write("<th>First Name</th>");
+              out.write("<th>Last Name</th>");
+              out.write("<th>Phone</th>");
+              out.write("<th>Date Of Birth</th>");
+              out.write("<th>Doctor</th>");
+              out.write("<th>Insurance</th>");
+              out.write("<th>Medication</th>");
+              out.write("<th>Room</th>");
+              out.write("<th>Appointments</th>");
               out.write("<tr>");
 
               out.write("<tr>");
-                  out.write("<td>" + id + "</td>");
-                  out.write("<td>" + firstName + "</td>");
-                  out.write("<td>" + lastName + "</td>");
-                  out.write("<td>" + phone + "</td>");
-                  out.write("<td>" + dob + "</td>");
-                  out.write("<td>" + doctorFirstName + " " + doctorLastName + "</td>");
-                  out.write("<td>" + insurance + "</td>");
-                  out.write("<td>" + medicationId + "</td>");
+              out.write("<td><center>" + id + "</center></td>");
+              out.write("<td><center>" + firstName + "</center></td>");
+              out.write("<td><center>" + lastName + "</center></td>");
+              out.write("<td>" + phone + "</td>");
+              out.write("<td>" + dob + "</td>");
+              out.write("<td>" + doctorFirstName + " " + doctorLastName + "</td>");
+              out.write("<td><center>" + insurance + "</center></td>");
+              out.write("<td><center>" + medicationId + "</center></td>");
+              out.write("<td>TBD</td>");
+              out.write("<td>");
+              out.write("<ul>");
 
-                  // if (room == 0) {
-                  //   out.write("<td>No room</td>");
-                  // }
-                  // else {
-                  //   out.write("<td>" + room + "</td>");
-                  // }
+              if (!appointments.isBeforeFirst()) {
+                out.write("<center>No appointments scheduled.</center></td>");
+              }
+              else {
+                while (appointments.next()) {
+                  out.write("<li>" + appointments.getTimestamp("appointmentDateTime") + "</li><br>");
+                }
+                out.write("</ul>");
+              }
 
-                  if (insurance == null) {
-                    out.write("<td>No insurance</td>");
-                  }
-                  else {
-                    out.write("<td>" + insurance + "</td>");
-                  }
-                out.write("</tr>");
-                doctorRS.close();
+              // if (room == 0) {
+              //   out.write("<td>No room</td>");
+              // }
+              // else {
+              //   out.write("<td>" + room + "</td>");
+              // }
+
+              // if (insurance == null) {
+              //   out.write("<td>No insurance</td>");
+              // }
+              // else {
+              //   out.write("<td>" + insurance + "</td>");
+              // }
+              out.write("</tr>");
+              doctorRS.close();
             }
             rs.close();
             stmt.close();
