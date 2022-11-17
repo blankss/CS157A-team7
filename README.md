@@ -110,7 +110,3 @@ INSERT INTO `hospibase`.`hasa` (`idPatient`, `idHistory`) VALUES (7,7);
 INSERT INTO `hospibase`.`hasa` (`idPatient`, `idHistory`) VALUES (8,8);
 INSERT INTO `hospibase`.`hasa` (`idPatient`, `idHistory`) VALUES (9,9);
 INSERT INTO `hospibase`.`hasa` (`idPatient`, `idHistory`) VALUES (10,10);
-
-
-
-
