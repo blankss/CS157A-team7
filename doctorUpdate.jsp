@@ -4,10 +4,10 @@
 <%@ page import="java.time.format.DateTimeFormatter"%>
 <html>
   <head>
-    <title>Doctor Login</title>
+    <title>Doctor Update</title>
     </head>
   <body>
-    <h1>Doctor Page</h1>
+    <h1>Doctor Update Page</h1>
     
     <% 
      String db = "hospibase";
