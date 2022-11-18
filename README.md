@@ -1,6 +1,6 @@
 # CS157A-team7
-##Code Review 1: Login and registration barebones complete. Search in progress. Temporarily created most of tables needed for project.
-## Temporarily create needed schema and tables using the following MySQL DDL statements
+## Code Review 1: Login and registration barebones complete. Search in progress. Temporarily created most of tables needed for project.
+## Code Review 2: Appointment complete, search complete, update patients information complete. Doctors update in progress, filter in progress, and patient bill in progress. Tables/schema DDL statements refelct our ERD.
 
 CREATE SCHEMA hospibase ;
 
