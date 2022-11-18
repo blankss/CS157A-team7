@@ -20,54 +20,48 @@
             
             out.println("Initial entries in table \"Patients\": <br/>");
             Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM hospibase.Patients");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM hospibase.Patient");
             out.write("<table border=\"1\">");
 
             out.write("<tr>");
               out.write("<th>Patient ID</th>");
               out.write("<th>First Name</th>");
               out.write("<th>Last Name</th>");
-              out.write("<th>Medical History</th>");
-              out.write("<th>Prescriptions</th>");
+              out.write("<th>Phone Number</th>");
+              out.write("<th>Date of Birth</th>");
+              out.write("<th>Username</th>");
+              out.write("<th>Password</th>");
               out.write("<th>Doctor</th>");
-              out.write("<th>Room</th>");
-              out.write("<th>Insurance</th>");
-              out.write("<th>Fee Charges (USD)</th>");
+              out.write("<th>Health Plan</th>");
+              out.write("<th>Medication</th>");
+              out.write("<th>Medical History</th>");
             out.write("<tr>");
 
             while (rs.next()) {
                 int id = rs.getInt(1);
                 String firstName = rs.getString(2);
                 String lastName = rs.getString(3);
-                String medicalHistory = rs.getString(4);
-                String prescriptions = rs.getString(5);
-                int doctor = rs.getInt(6);
-                int room = rs.getInt(7);
-                String insurance = rs.getString(8);
-                double fee = rs.getDouble(9);
+                String phoneNumber = rs.getString(4);
+                String dateOfBirth = rs.getString(5);
+                String username = rs.getString(6);
+                String userPassword = rs.getString(7);
+                String doctor = rs.getString(7);
+                String healthPlan = rs.getString(8);
+                String medication = rs.getString(9);
+                String medicalHistory = rs.getString(10);
 
                 out.write("<tr>");
                   out.write("<td>" + id + "</td>");
                   out.write("<td>" + firstName + "</td>");
                   out.write("<td>" + lastName + "</td>");
-                  out.write("<td>" + medicalHistory + "</td>");
-                  out.write("<td>" + prescriptions + "</td>");
+                  out.write("<td>" + phoneNumber + "</td>");
+                  out.write("<td>" + dateOfBirth + "</td>");
+                  out.write("<td>" + username + "</td>");
+                  out.write("<td>" + userPassword + "</td>");
                   out.write("<td>" + doctor + "</td>");
-
-                  if (room == 0) {
-                    out.write("<td>No room</td>");
-                  }
-                  else {
-                    out.write("<td>" + room + "</td>");
-                  }
-
-                  if (insurance == null) {
-                    out.write("<td>No insurance</td>");
-                  }
-                  else {
-                    out.write("<td>" + insurance + "</td>");
-                  }
-                  out.write("<td>" + fee + "</td>");
+                  out.write("<td>" + healthPlan + "</td>");
+                  out.write("<td>" + medication + "</td>");
+                  out.write("<td>" + medicalHistory + "</td>");
                 out.write("</tr>");
             }
             rs.close();
