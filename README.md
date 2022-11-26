@@ -92,6 +92,9 @@ INSERT INTO `hospitaladministrators` VALUES (18,'Chase','solstice','winter4!@');
 INSERT INTO `hospitaladministrators` VALUES (19,'Ian','ijuly','SoaGSk');
 INSERT INTO `hospitaladministrators` VALUES (20,'Tristan','clarkent','superman6');
 
+ALTER TABLE `hospibase`.`hospitaladministrators` 
+ADD COLUMN `loggedin` TINYINT NOT NULL AFTER `password`;
+
 CREATE TABLE `hospibase`.`patientbill` (
   `idbill` int NOT NULL,
   `medicationcost` int DEFAULT NULL,
