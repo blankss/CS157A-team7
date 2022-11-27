@@ -48,6 +48,9 @@
               out.write("<input type=button onClick=parent.open('adminRegister.html') value='Register Additional Admin'>");
               out.write("<br>");
               out.write("<br>");
+              out.write("<input type=button onClick=parent.open('removePatient.html') value='Remove Patient File'>");
+              out.write("<br>");
+              out.write("<br>");
             }
             rs.close();
             stmt.close();
