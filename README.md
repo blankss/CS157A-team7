@@ -35,8 +35,6 @@ CREATE TABLE hospibase.Appointment ( idAppointment INT NOT NULL AUTO_INCREMENT, 
 
 INSERT INTO hospibase.Appointment (idAppointment, patientName, appointmentDateTime, idPatient, idAppointmentDoctor) VALUES ('1', 'Natalie Kora', '2022-10-10 12:00:00', '1', '1'); INSERT INTO hospibase.Appointment (idAppointment, patientName, appointmentDateTime, idPatient, idAppointmentDoctor) VALUES ('2', 'Amy Sanchez', '2022-10-10 12:30:00', '2', '1'); INSERT INTO hospibase.Appointment (idAppointment, patientName, appointmentDateTime, idPatient, idAppointmentDoctor) VALUES ('3', 'Ivy Noel', '2022-10-12 13:15:00', '3', '2'); INSERT INTO hospibase.Appointment (idAppointment, patientName, appointmentDateTime, idPatient, idAppointmentDoctor) VALUES ('4', 'Eli Sanchez', '2022-10-14 15:30:00', '4', '3'); INSERT INTO hospibase.Appointment (idAppointment, patientName, appointmentDateTime, idPatient, idAppointmentDoctor) VALUES ('5', 'Richard Nelson', '2022-10-14 16:00:00', '5', '5'); INSERT INTO hospibase.Appointment (idAppointment, patientName, appointmentDateTime, idPatient, idAppointmentDoctor) VALUES ('6', 'Nicholas June', '2022-10-18 14:45:00', '10', '6'); INSERT INTO hospibase.Appointment (idAppointment, patientName, appointmentDateTime, idPatient, idAppointmentDoctor) VALUES ('7', 'Natalie Kora', '2022-10-19 12:00:00', '1', '1'); INSERT INTO hospibase.Appointment (idAppointment, patientName, appointmentDateTime, idPatient, idAppointmentDoctor) VALUES ('8', 'Joshua Gonzales', '2022-10-20 15:45:00', '8', '9'); INSERT INTO hospibase.Appointment (idAppointment, patientName, appointmentDateTime, idPatient, idAppointmentDoctor) VALUES ('9', 'Freya Kora', '2022-10-24 16:30:00', '6', '7'); INSERT INTO hospibase.Appointment (idAppointment, patientName, appointmentDateTime, idPatient, idAppointmentDoctor) VALUES ('10', 'Alan Nora', '2022-10-31 13:45:00', '9', '1');
 
-CREATE TABLE hospibase.HospitalRooms ( roomNumber INT NOT NULL, roomCost DECIMAL(10,2) NULL, condition VARCHAR(45) NULL, PRIMARY KEY (roomNumber));
-
 CREATE TABLE `hospibase`.`medication` (
   `idmedication` int NOT NULL,
   `medicationCost` int DEFAULT NULL,
@@ -136,3 +134,44 @@ INSERT INTO `hospibase`.`hasa` (`idPatient`, `idHistory`) VALUES (7,7);
 INSERT INTO `hospibase`.`hasa` (`idPatient`, `idHistory`) VALUES (8,8);
 INSERT INTO `hospibase`.`hasa` (`idPatient`, `idHistory`) VALUES (9,9);
 INSERT INTO `hospibase`.`hasa` (`idPatient`, `idHistory`) VALUES (10,10);
+
+CREATE TABLE `hospibase`.`Equipment` (
+  `idequipment` int NOT NULL AUTO_INCREMENT,
+  `quantity` int DEFAULT NULL,
+  `equipCondition` varchar(45) DEFAULT NULL,
+  `idAdmin` int DEFAULT NULL,
+  PRIMARY KEY (`idequipment`),
+  UNIQUE KEY `idequipment_UNIQUE` (`idequipment`),
+  KEY `idAdmin_idx` (`idAdmin`),
+  CONSTRAINT `idAdmin` FOREIGN KEY (`idAdmin`) REFERENCES `hospitaladministrators` (`idAdmin`)
+);
+
+INSERT INTO `hospibase`.`Equipment` VALUES (1,11,'working',1),
+(2,10,'new',2),
+(3,15,'new',2),
+(4,21,'working',4),
+(5,9,'new',5),
+(6,20,'new',6),
+(7,14,'needs repairs',7),
+(8,88,'working',8),
+(9,3,'needs repair',9),
+(10,50,'broken',10);
+
+CREATE TABLE `hospibase`.`HospitalRooms` (
+  `roomNumber` int NOT NULL AUTO_INCREMENT,
+  `roomCost` int DEFAULT NULL,
+  `roomCondition` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`roomNumber`),
+  UNIQUE KEY `roomNumber_UNIQUE` (`roomNumber`)
+);
+
+INSERT INTO `hospibase`.`HospitalRooms` VALUES (1,50,'clean'),
+(2,50,'dirty'),
+(3,50,'clean'),
+(4,50,'needs repairs'),
+(5,50,'needs repairs'),
+(6,50,'dirty'),
+(7,50,'needs repairs'),
+(8,50,'needs repairs'),
+(9,50,'clean'),
+(10,50,'clean');
