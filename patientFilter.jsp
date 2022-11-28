@@ -6,7 +6,7 @@
     <title>Patient Filter</title>
     </head>
   <body>
-    <h1>Search Bar</h1>
+    <h1>Filter by</h1>
     <%@ include file="patientFilter.html" %>
     <%
         String db = "hospibase";
