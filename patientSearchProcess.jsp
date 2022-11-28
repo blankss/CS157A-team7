@@ -7,6 +7,17 @@
     </head>
   <body>
     <h1>Search Bar</h1>
+    <body>
+      
+      <form id="form" method="post" action="patientSearchProcess.jsp" >
+        <div class="form-group col-md-6">
+            <label>Patient ID</label>
+            <input type="text" name="patientID" idPatient="patientID" placeholder="Patient ID"></center>
+            <input type="text" name="patientName" firstName="Patient Name" placeholder="Name"></center>
+            <input type="submit">
+        </div>
+      </form>
+    </body>
 
     <%
         String db = "hospibase";
@@ -20,7 +31,7 @@
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hospibase", user, passwordDB);
             String patientID = request.getParameter("patientID");
-            
+            String patientName = request.getParameter("patientName");
 
                out.print("<h3>Patient Details</h3>");
             Statement stmt = con.createStatement();
@@ -54,8 +65,13 @@
             }
             else {*/
                 // compares user input to id of patients
-                pst = con.prepareStatement("SELECT * FROM hospibase.Patient WHERE idPatient = ?");
-                pst.setString(1, patientID);
+                pst = con.prepareStatement("SELECT * FROM hospibase.Patient WHERE firstName = ? OR idPatient = ? xor (firstName = ? AND idPatient = ? )");
+                //pst.setString(1, patientID);
+                //pst.setString(2, patientName);
+                pst.setString(1, patientName);
+                pst.setString(2, patientID);
+                pst.setString(3, patientName);
+                pst.setString(4, patientID);
                 rs = pst.executeQuery();
                  while(rs.next())
                  {
@@ -83,4 +99,6 @@
             out.println("SQLException caught: " + e.getMessage());
         }
     %>
+   
+
 </html>
