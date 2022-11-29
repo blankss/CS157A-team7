@@ -22,14 +22,18 @@
             Statement stmt = con.createStatement();
             //Statement stmt1 = con.createStatement();
 
-            int res = stmt.executeUpdate("INSERT INTO equipment(quantity,equipCondition,idAdmin)" +
-            "VALUES('"+quantityParam+"','"+conditionParam +"','"+adminidParam+"')");
-
-            if (quantityParam.isEmpty() || conditionParam.isEmpty() || adminidParam.isEmpty()) {
-                out.write("<html><body><script>alert('Invalid Field Value')</script></body></html>");
+            if (quantityParam.isEmpty() || conditionParam.isEmpty() || adminIDParam.isEmpty()) {
                 out.write("Empty or Invalid Input. Please try again: <a href='addEquipment.html'>Add Equipment</a>");
                 return;
             }
+
+
+            // auto-increment still increments even for an unsuccessful attempt so increment based on the
+            // max in the table
+            int res = stmt.executeUpdate("INSERT INTO Equipment (idequipment, quantity, equipCondition, idadmin)"+ 
+            "SELECT MAX(idequipment) + 1,'"+quantityParam+"','"+conditionParam +"','"+adminIDParam+"' FROM  Equipment");
+
+            
             
             out.println("Add equipment successfully");
 
