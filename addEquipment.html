@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<title>Add Equipment</title>
+<body>
+	<h1><center>Equipment Adding</center></h1>
+	<form action="addEquipProc.jsp" method="POST">
+		<center><label for="quantity">Quantity of equipment</label></center><br>
+		<center><input type="text" name="quantity"></center><br>
+
+        
+        <center><label for="equipCondition">Condition of equipment:</label></center><br>
+		<center><select name="equipCondition" id="equipCondition">
+            <option value="new">New</option>
+            <option value="working">Working</option>
+            <option value="repair">Needs Repair</option>
+            <option value="broken">Broken</option>
+            </select>
+        </center><br>
+
+		<center><label for="idAdmin">Admin ID:</label></center><br>
+		<center><input type="text" name="idAdmin"></center><br>
+
+		<center><input type="submit"></center>
+	</form>
+</body>
+</html>
