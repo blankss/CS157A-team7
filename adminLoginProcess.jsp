@@ -33,6 +33,9 @@
 
             rs.next();
             if (rs.getString("username").equals(usernameParam) && rs.getString("password").equals(passwordParam)) {
+
+              int res = stmt1.executeUpdate("UPDATE hospitaladministrators SET loggedin = 1 WHERE idAdmin = '" + rs.getInt("idAdmin") + "'");
+
               out.write("<h3>Admin logged in instance success. </h3>");
               out.write("Please choose an administrative action to do below.");
               out.write("<br>");
@@ -48,9 +51,13 @@
               out.write("<input type=button onClick=parent.open('adminRegister.html') value='Register Additional Admin'>");
               out.write("<br>");
               out.write("<br>");
-              out.write("<input type=button onClick=parent.open('removePatient.html') value='Remove Patient File'>");
+              out.write("<input type=button onClick=parent.open('searchPatient.html') value='Search For Patient File'>");
               out.write("<br>");
               out.write("<br>");
+              out.write("<input type=button onClick=parent.open('addMedication.html') value='Add Medication to Inventory'>");
+              out.write("<br>");
+              out.write("<br>");
+
             }
             rs.close();
             stmt.close();
