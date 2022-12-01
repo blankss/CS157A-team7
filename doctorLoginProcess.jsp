@@ -77,6 +77,11 @@
               out.write("</table>");
 
               out.write("<br>");
+              out.write("<input type=button onClick=parent.open('/doctorUpdate.html') value='Update Your Information'>");
+              out.write("<input type=button onClick=parent.open('sortPatient.jsp') value='View Hospital Patients' style='margin-left:16px'>");
+              out.write("<br>");
+              out.write("<br>");
+
 
               out.write("<table border=\"1\">");
 
