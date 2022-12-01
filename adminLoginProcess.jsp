@@ -57,7 +57,12 @@
               out.write("<input type=button onClick=parent.open('addMedication.html') value='Add Medication to Inventory'>");
               out.write("<br>");
               out.write("<br>");
-
+              out.write("<input type=button onClick=parent.open('addRoom.html') value='Add Hospital Rooms'>");
+              out.write("<br>");
+              out.write("<br>");
+              out.write("<input type=button onClick=parent.open('addEquipment.html') value='Add Equipment to Inventory'>");
+              out.write("<br>");
+              out.write("<br>");
             }
             rs.close();
             stmt.close();
