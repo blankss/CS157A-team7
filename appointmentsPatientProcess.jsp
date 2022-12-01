@@ -37,7 +37,7 @@
 
             if (!rs.isBeforeFirst()) {
               out.write("<html><body><script>alert('Date Incorrect')</script></body></html>");
-              out.write("Username/Password incorrect, please try again: <a href='appointmentsPatient.html'>AppointmentsPage</a>");
+              out.write("Username/Password incorrect, please try again: <a href='patientAppointment.html'>AppointmentsPage</a>");
               return;
             }
 
@@ -57,21 +57,21 @@
                 && appointmentDoctor == patientDoctor) {
                 out.write("Conflicting appointment time.<br>");
                 out.write("Please try again.<br>");
-                out.write("<a href='appointmentsPatient.html'>AppointmentsPage</a>");
+                out.write("<a href='patientAppointment.html'>AppointmentsPage</a>");
                 return;
               }
 
               if (LocalDateTime.now().isAfter(appt)) {
                 out.write("Invalid appointment time, time already passed.<br>");
                 out.write("Please try again.<br>");
-                out.write("<a href='appointmentsPatient.html'>AppointmentsPage</a>");
+                out.write("<a href='patientAppointment.html'>AppointmentsPage</a>");
                 return;
               }
 
               if (appt.getHour() < 9 || appt.getHour() > 17) {
                 out.write("Invalid appointment time, outside working hours.<br>");
                 out.write("Please try again.<br>");
-                out.write("<a href='appointmentsPatient.html'>AppointmentsPage</a>");
+                out.write("<a href='patientAppointment.html'>AppointmentsPage</a>");
                 return;
               }
             }
