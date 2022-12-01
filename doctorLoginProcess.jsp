@@ -4,10 +4,10 @@
 <%@ page import="java.time.format.DateTimeFormatter"%>
 <html>
   <head>
-    <title>Patient Login</title>
+    <title>Doctor Login</title>
     </head>
   <body>
-    <h1>Patient Login</h1>
+    <h1>Doctor Login</h1>
     
     <% 
      String db = "hospibase";
@@ -43,7 +43,6 @@
               String doctorLastName = rs.getString("lastName");
               String specialization = rs.getString("specialization");
 
-              //TODO: implement this with medications when medication info is uploaded
               ResultSet patients = stmt.executeQuery("SELECT * " + 
                 "FROM `has a` h JOIN  `Medical History` m " + 
                 "ON h.idMedicalHistory = m.idHistory NATURAL JOIN Patient " + 
@@ -54,7 +53,9 @@
                 "WHERE idAppointmentDoctor = '" + idDoctor + "'");
 
               out.write("<h2>Hello, Dr. " + doctorFirstName + "</h2><br>");
-              out.write("<h3>Your Information:</h3><br>");
+              out.write("<h3>Your Information:</h3>");
+
+              out.write("<input type=button onClick=parent.open('/doctorUpdate.html') value='Update Your Information'>");
 
               out.write("<table border=\"1\">");
 

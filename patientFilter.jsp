@@ -27,7 +27,7 @@
 
            
                 // compares user input to id of patients
-                pst = con.prepareStatement("SELECT * FROM hospibase.Patient WHERE idPatientDoctor = ?");
+                pst = con.prepareStatement("SELECT * FROM hospibase.Patient WHERE idDoctor = ?");
                 pst.setString(1, doctorID);
                 rs = pst.executeQuery();
                  while(rs.next())
@@ -41,10 +41,9 @@
                       out.print("<td style = 'width: 140px'>" + rs.getString("dateOfBirth") + "<td>");
                       out.print("<td>" + rs.getString("username") + "<td>");
                       out.print("<td>" + rs.getString("password") + "<td>");
-                      out.print("<td>" + rs.getString("idPatientDoctor") + "<td>");
+                      out.print("<td>" + rs.getString("idDoctor") + "<td>");
                       out.print("<td>" + rs.getString("idPlan") + "<td>");
                       out.print("<td>" + rs.getString("idMedication") + "<td>");
-                      out.print("<td>" + rs.getString("idHistory") + "<td>");
                    out.print("</tr>");
                    out.print("</table>");
                  }
