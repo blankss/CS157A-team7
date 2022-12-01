@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<title>Add Hospital Room</title>
+<body>
+	<h1><center>Add Hospital Room</center></h1>
+	<form action="addRoom.jsp" method="POST">
+		<center><label for="roomCost">Cost of Room</label></center><br>
+		<center><input type="text" name="roomCost"></center><br>
+
+        
+        <center><label for="roomCondition">Condition of equipment:</label></center><br>
+		<center><select name="roomCondition" id="roomCondition">
+            <option></option>
+            <option value="new">New</option>
+            <option value="working">Dirty</option>
+            <option value="repair">Needs Repair</option>
+            </select>
+        </center><br>
+
+
+		<center><input type="submit"></center>
+	</form>
+</body>
+</html>
