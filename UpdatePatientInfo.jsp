@@ -32,22 +32,28 @@
           java.sql.Connection con; 
           Class.forName("com.mysql.jdbc.Driver");
           con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hospibase", user, password);
-          out.println(db + " database successfully opened.<br/><br/>");
-          
-          out.println("Initial entries in table \"Patients\": <br/>");
+          if (phoneNumberParam.length() > 10 || !dateOfBirthParam.matches("^\\d{4}\\-(0?[1-9]|1[012])\\-(0?[1-9]|[12][0-9]|3[01])$"))
+          {
+              out.write("<html><body><script>alert('Recheck phone number or date of birth format')</script></body></html>");
+              out.write("Incorrect format, please try again:<html><body><script>window.location.href = '/updatePatient.html';</script></body></html>");
+          }
+
+          out.println("Updating \"Patients\": <br/>");
           Statement stmt = con.createStatement();
-          int status = stmt.executeUpdate("UPDATE hospibase.Patient " + 
-          "SET firstName=COALESCE("+firstNameParam+
-          ",firstName), lastName=COALESCE("+lastNameParam+
-          ",lastName), phoneNumber=COALESCE("+phoneNumberParam+ 
-          ",phoneNumber), dateOfBirth=COALESCE("+dateOfBirthParam+
-          ",dateOfBirth), username=COALESCE("+usernameParam+
-          ",username), password=COALESCE("+passwordParam+
-          ",password), idDoctor=COALESCE("+idDoctor+
+          String query = "UPDATE hospibase.Patient " + 
+          "SET firstName=COALESCE('"+firstNameParam+
+          "',firstName), lastName=COALESCE('"+lastNameParam+
+          "',lastName), phoneNumber=COALESCE('"+phoneNumberParam+ 
+          "',phoneNumber), dateOfBirth=COALESCE('"+dateOfBirthParam+
+          "',dateOfBirth), username=COALESCE('"+usernameParam+
+          "',username), password=COALESCE('"+passwordParam+
+          "',password), idDoctor=COALESCE("+idDoctor+
           ",idDoctor), idPlan=COALESCE("+idPlan+
           ",idPlan), idMedication=COALESCE("+idMedication+
           ",idMedication), idHistory=COALESCE("+idHistory+
-          ", idHistory) WHERE idPatient="+idPatient+";");
+          ", idHistory) WHERE idPatient="+idPatient+";";
+          out.write(String.valueOf(query)); 
+          int status = stmt.executeUpdate(query);
           
           String redirectURL = "/ViewPatients.jsp";
           if (status == 0) {
