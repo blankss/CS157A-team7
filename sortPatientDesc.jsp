@@ -20,7 +20,7 @@
               con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hospibase", user, password);
               
               Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM hospibase.Patient ORDER BY firstName DESC");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM hospibase.Patients ORDER BY firstName DESC");
             out.write("<table border=\"1\">");
 
             out.write("<tr>");
