@@ -57,7 +57,7 @@
               String doctorLastName = doctorRS.getString(2);
 
               out.write("<h2>Hello, " + firstName + "</h2><br>");
-              out.write("<input type=button onClick=parent.open('/patientReg.html') value='Payment Page'>");
+              out.write("<input type=button onClick=parent.open('/patientPayment.html') value='Payment Page'>");
               out.write("<input type=button onClick=parent.open('patientAppointment.html') value='Make An Appointment'>");
 
               out.write("<table border=\"1\">");
@@ -98,19 +98,6 @@
                 out.write("</ul>");
               }
 
-              // if (room == 0) {
-              //   out.write("<td>No room</td>");
-              // }
-              // else {
-              //   out.write("<td>" + room + "</td>");
-              // }
-
-              // if (insurance == null) {
-              //   out.write("<td>No insurance</td>");
-              // }
-              // else {
-              //   out.write("<td>" + insurance + "</td>");
-              // }
               out.write("</tr>");
               doctorRS.close();
             }

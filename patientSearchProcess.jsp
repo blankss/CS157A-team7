@@ -55,7 +55,7 @@
               out.print("<td>" + rs.getString("dateOfBirth") + "<td>");
               out.print("<td>" + rs.getString("username") + "<td>");
               out.print("<td>" + rs.getString("password") + "<td>");
-              out.print("<td>" + rs.getString("idPatientDoctor") + "<td>");
+              out.print("<td>" + rs.getString("idDoctor") + "<td>");
               out.print("<td>" + rs.getString("idPlan") + "<td>");
               out.print("<td>" + rs.getString("idMedication") + "<td>");
               out.print("<td>" + rs.getString("idHistory") + "<td>");

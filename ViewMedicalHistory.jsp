@@ -20,33 +20,27 @@
             
             out.println("Initial entries in table \"MedicalHistory\": <br/>");
             Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM hospibase.MedicalHistory");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM hospibase.`Medical History`");
             out.write("<table border=\"1\">");
 
             out.write("<tr>");
                 out.write("<th>patient_id</th>");
-                out.write("<th>allergies</th>");
+                out.write("<th>symptoms</th>");
                 out.write("<th>surgeries</th>");
-                out.write("<th>family_history</th>");
                 out.write("<th>medications</th>");
-                out.write("<th>illnesses</th>");
             out.write("<tr>");
 
             while (rs.next()) {
                 int patient_id = rs.getInt(1);
-                String allergies = rs.getString(2);
+                String symptoms = rs.getString(2);
                 String surgeries = rs.getString(3);
-                String family_history = rs.getString(4);
-                String medications = rs.getString(5);
-                String illnesses = rs.getString(6);
+                String medications = rs.getString(4);
 
                 out.write("<tr>");
                   out.write("<td>" + patient_id + "</td>");
-                  out.write("<td>" + allergies + "</td>");
+                  out.write("<td>" + symptoms + "</td>");
                   out.write("<td>" + surgeries + "</td>");
-                  out.write("<td>" + family_history + "</td>");
                   out.write("<td>" + medications + "</td>");
-                  out.write("<td>" + illnesses + "</td>");
                 out.write("</tr>");
             }
             rs.close();
