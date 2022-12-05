@@ -1,25 +1,27 @@
 <%@ page import="java.sql.*"%>
 <html>
-  <head>
-    <title>AllPatients</title>
-    </head>
-  <body>
-    <h1>Patients Database View</h1>
-    
-    <% 
-     String db = "hospibase";
-        String user; // assumes database name is the same as username
-          user = "root";
-        String password = "root";
-        try {
-            
-            java.sql.Connection con; 
-            Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hospibase", user, password);
-            
-            Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM hospibase.Patient ORDER BY firstName DESC");
-            out.write("<table>");
+  <%@ page import="java.sql.*"%>
+  <html>
+    <head>
+      <title>AllPatients</title>
+      </head>
+    <body>
+      <h1>Patients Database View</h1>
+      <%@ include file="patientSearch.html" %>
+      <% 
+       String db = "hospibase";
+          String user; // assumes database name is the same as username
+            user = "root";
+          String password = "root";
+          try {
+              
+              java.sql.Connection con; 
+              Class.forName("com.mysql.jdbc.Driver");
+              con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hospibase", user, password);
+              
+              Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM hospibase.Patients ORDER BY firstName DESC");
+            out.write("<table border=\"1\">");
 
             out.write("<tr>");
               out.write("<th>Patient ID</a></th>");

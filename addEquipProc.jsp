@@ -35,7 +35,11 @@
 
             
             
-            out.println("Add equipment successfully");
+            out.write("Add equipment successfully");
+            out.write("<br>");
+            out.write("<br>");
+            out.write("<input type=button value='Back' onClick=history.back()>");
+
 
 
             stmt.close();

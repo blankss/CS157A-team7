@@ -31,7 +31,11 @@
           java.sql.Connection con; 
           Class.forName("com.mysql.jdbc.Driver");
           con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hospibase", user, password);
+<<<<<<< HEAD
           if ((phoneNumberParam != null && phoneNumberParam.length() > 10) || (dateOfBirthParam != null && !dateOfBirthParam.matches("^\\d{4}\\-(0?[1-9]|1[012])\\-(0?[1-9]|[12][0-9]|3[01])$")))
+=======
+          if ((phoneNumberParam != null && phoneNumberParam.length() > 10) || (dateOfBirthParam != null && !dateOfBirthParam.matches("^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$")))
+>>>>>>> 35420700071616420bf2d9d394dddad20b3be4ca
           {
               out.write("<html><body><script>alert('Recheck phone number or date of birth format')</script></body></html>");
               out.write("Incorrect format, please try again:<html><body><script>window.location.href = '/updatePatient.html';</script></body></html>");

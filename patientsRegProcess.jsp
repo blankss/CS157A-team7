@@ -21,7 +21,6 @@
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hospibase", user, passwordDB);
             Statement stmt = con.createStatement();
-
             //redirect to patient registration HTML form again if username exists already
             ResultSet setUsernameEmpty = stmt.executeQuery("SELECT username " +
               "FROM Patient " +
@@ -32,7 +31,6 @@
               return;
             }
             setUsernameEmpty.close();
-
             //automatically assign to doctor that has the least number of patients
             ResultSet setDoctor = stmt.executeQuery("SELECT idDoctor" +
               " FROM Patient" + 
@@ -42,8 +40,12 @@
                 " FROM Patient" + 
                 " GROUP BY idDoctor)");
             setDoctor.next();
+<<<<<<< HEAD
             int doctorID = setDoctor.getInt("idDoctor");
 
+=======
+            int doctorID = setDoctor.getInt("doctorID");
+>>>>>>> 35420700071616420bf2d9d394dddad20b3be4ca
             //don't forget that VALUES you need single quotes to denote variable name
             int res = stmt.executeUpdate("INSERT INTO Patient(firstName,lastName,username,password, idDoctor) VALUES('" + firstNameParam + "','" + lastNameParam + "','" + usernameParam + "','" + passwordParam + "','" + doctorID + "')");
             out.println("Successful registration, please login at: <a href='patientLogin.html'>Login</a>");
