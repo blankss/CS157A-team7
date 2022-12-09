@@ -1,11 +1,21 @@
 <%@ page import="java.sql.*"%>
 <html>
+<head>
+<style>
+body {
+  background-image: url("patientPay.jpg");
+  background-size: cover;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+</style>
+</head>
   <head>
     <title>AllPatients</title>
     </head>
   <body>
     <h1>Patients Database View</h1>
-    <%@ include file="patientSearch.html" %>
+    
     <% 
      String db = "hospibase";
         String user; // assumes database name is the same as username
@@ -18,8 +28,24 @@
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hospibase", user, password);
             
             Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM hospibase.Patients");
-            out.write("<table border=\"1\">");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM hospibase.Patient");
+            %>
+              <style>
+              table {
+                width: 100%;
+              }
+
+              th, td {
+                text-align: center;
+                padding: 5px;
+              }
+
+              td:nth-child(odd){
+                background-color: #8CEEBB;
+              }
+              </style>
+              <%
+            out.write("<table border=\"1\" bgcolor=\"#4ACC88\">");
 
             out.write("<tr>");
               out.write("<th>Patient ID</a></th>");

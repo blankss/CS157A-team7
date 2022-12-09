@@ -1,5 +1,15 @@
 <%@ page import="java.sql.*"%>
 <html>
+<head>
+<style>
+body {
+  background-image: url("patientLogin.jpg");
+  background-size: cover;
+  background-size: 100% 150%;
+  background-repeat: no-repeat;
+}
+</style>
+</head>
   <head>
     <title>Patient Login</title>
     </head>
@@ -57,10 +67,31 @@
               String doctorLastName = doctorRS.getString(2);
 
               out.write("<h2>Hello, " + firstName + "</h2><br>");
-              out.write("<input type=button onClick=parent.open('/patientPayment.html') value='Payment Page'>");
-              out.write("<input type=button onClick=parent.open('patientAppointment.html') value='Make An Appointment'>");
+              %>
+              <input type=button onClick="window.location.href=('patientPayment.html')" value="Payment Page" style="margin-left:16px">
+              <input type=button onClick="window.location.href=('patientAppointment.html')" value="Make An Appointment" style="margin-left:16px">
+              <input type=button onClick="window.location.href=('landingPage.html')" value="Logout to Landing Page" style="margin-left:16px">
+            <%
 
-              out.write("<table border=\"1\">");
+              %>
+              <style>
+              table {
+                width: 100%;
+              }
+
+              th, td {
+                text-align: center;
+                padding: 5px;
+              }
+
+              tr:nth-child(odd) {
+                background-color: #CACEF9;
+              }
+              </style>
+              <%
+
+              out.write("<table border=\"1\" bgcolor=\"#939CF9\">");
+
 
               out.write("<tr>");
               out.write("<th>Patient ID</th>");
