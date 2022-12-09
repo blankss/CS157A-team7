@@ -47,7 +47,7 @@
 
             if (doctorBool.equals("True")) {
               out.write("<br>");
-              int doctorRes = stmt1.executeUpdate("INSERT INTO Doctor(firstName) VALUES('" + nameParam + "')");
+              int doctorRes = stmt1.executeUpdate("INSERT INTO Doctor(firstName, username, password) VALUES('" + nameParam + "', '" + usernameParam + "','" + passwordParam + "')");
               out.write("Doctor name added. Please input your information when you go update. <a href='doctorUpdate.html'>Doctor Update</a>");
             }
 
