@@ -27,7 +27,7 @@
 
             
             // compares user input to id of patients
-            pst = con.prepareStatement("SELECT * FROM hospibase.Patients WHERE firstName = ? OR idPatient = ? xor (firstName = ? AND idPatient = ? )");
+            pst = con.prepareStatement("SELECT * FROM hospibase.Patient WHERE firstName = ? OR idPatient = ? xor (firstName = ? AND idPatient = ? )");
             pst.setString(1, patientName);
             pst.setString(2, patientID);
             pst.setString(3, patientName);

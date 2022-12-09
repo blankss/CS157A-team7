@@ -27,7 +27,7 @@
 
            
                 // compares user input to id of patients
-                pst = con.prepareStatement("SELECT * FROM hospibase.Patients WHERE idDoctor = ?");
+                pst = con.prepareStatement("SELECT * FROM hospibase.Patient WHERE idDoctor = ?");
                 pst.setString(1, doctorID);
                 rs = pst.executeQuery();
                  while(rs.next())
