@@ -49,6 +49,9 @@
               out.write("<input type=button onClick=parent.open('patientSearchProcess.jsp') value='Search For Patient File'>");
               out.write("<br>");
               out.write("<br>");
+              out.write("<input type=button onClick=parent.open('searchDoctor.jsp') value='Search For Doctor'>");
+              out.write("<br>");
+              out.write("<br>");
               out.write("<input type=button onClick=parent.open('patientFilter.jsp') value='Filter For Patient File'>");
               out.write("<br>");
               out.write("<br>");
