@@ -63,7 +63,7 @@
               out.write("<input type=button onClick=parent.open('updatePatient.html') value='Update Patient Page'>");
               out.write("<br>");
               out.write("<br>");
-              out.write("<input type=button onClick=parent.open('ViewMedicalHistory.jsp') value='View Medical History'");
+              out.write("<input type=button onClick=parent.open('ViewMedicalHistory.jsp') value='View Medical History'>");
               out.write("<br>");
               out.write("<br>");
               out.write("<br>");
