@@ -4,9 +4,22 @@
 
 Image References:
 https://www.pexels.com/photo/medical-stethoscope-with-red-paper-heart-on-white-surface-4386467/
+
 https://www.logolynx.com/topic/red+cross#&gid=1&pid=2
+
 https://www.cleanpng.com/png-lean-manufacturing-industry-microsoft-dynamics-365-6345668/
+
 https://www.kindpng.com/imgv/ixmTxRo_registration-logo-hd-png-download/
+
+https://www.pexels.com/photo/person-holding-white-printer-paper-4226138/
+
+http://clipart-library.com/clipart/Doctor-Symbol-Caduceus-PNG-Picture.htm
+
+https://www.pexels.com/photo/set-of-white-pills-on-yellow-background-4210661/
+
+https://www.pexels.com/photo/syringe-and-pills-on-blue-background-3786159/
+
+https://www.pexels.com/photo/face-mask-on-blue-background-3786153/
 
 CREATE SCHEMA hospibase ;
 
