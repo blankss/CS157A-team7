@@ -2,6 +2,12 @@
 ## Code Review 1: Login and registration barebones complete. Search in progress. Temporarily created most of tables needed for project.
 ## Code Review 2: Appointment complete, search complete, update patients information complete. Doctors update in progress, filter in progress, and patient bill in progress. Tables/schema DDL statements reflect our ERD.
 
+Image References:
+https://www.pexels.com/photo/medical-stethoscope-with-red-paper-heart-on-white-surface-4386467/
+https://www.logolynx.com/topic/red+cross#&gid=1&pid=2
+https://www.cleanpng.com/png-lean-manufacturing-industry-microsoft-dynamics-365-6345668/
+https://www.kindpng.com/imgv/ixmTxRo_registration-logo-hd-png-download/
+
 CREATE SCHEMA hospibase ;
 
 CREATE TABLE hospibase.Doctor ( idDoctor INT NOT NULL AUTO_INCREMENT, firstName VARCHAR(50) NULL, lastName VARCHAR(50) NULL, specialization VARCHAR(60) NULL, username VARCHAR(45) NULL, password VARCHAR(45) NULL, PRIMARY KEY (idDoctor), UNIQUE INDEX username_UNIQUE (username ASC) VISIBLE);
