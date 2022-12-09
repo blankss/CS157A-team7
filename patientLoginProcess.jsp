@@ -57,7 +57,7 @@
               String doctorLastName = doctorRS.getString(2);
 
               out.write("<h2>Hello, " + firstName + "</h2><br>");
-              out.write("<input type=button onClick=parent.open('/patientPayment.html') value='Payment Page'>");
+              out.write("<input type=button onClick=parent.open('patientPayment.html') value='Payment Page'>");
               out.write("<input type=button onClick=parent.open('patientAppointment.html') value='Make An Appointment'>");
 
               out.write("<table border=\"1\">");
