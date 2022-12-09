@@ -60,17 +60,17 @@
               out.write("<input type=button onClick=parent.open('addEquipment.html') value='Add Equipment to Inventory'>");
               out.write("<br>");
               out.write("<br>");
-              out.write("<input type=button onClick=parent.open('/updatePatient.html') value='Update Patient Page'>");
+              out.write("<input type=button onClick=parent.open('updatePatient.html') value='Update Patient Page'>");
               out.write("<br>");
               out.write("<br>");
-              out.write("<input type=button onClick=parent.open('/ViewMedicalHistory.jsp') value='View Medical History'");
+              out.write("<input type=button onClick=parent.open('ViewMedicalHistory.jsp') value='View Medical History'");
               out.write("<br>");
               out.write("<br>");
               out.write("<br>");
-              out.write("<input type=button onClick=parent.open('/ViewHealthplans.jsp') value='View Available Health plans'>");
+              out.write("<input type=button onClick=parent.open('ViewHealthplans.jsp') value='View Available Health plans'>");
               out.write("<br>");
               out.write("<br>");
-              out.write("<input type=button onClick=parent.open('/removeUser.html') value='Remove A User'>");
+              out.write("<input type=button onClick=parent.open('removeUser.html') value='Remove A User'>");
               out.write("<br>");
               out.write("<br>");
             }
