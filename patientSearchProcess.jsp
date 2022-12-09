@@ -1,13 +1,30 @@
 <%@ page import="java.sql.*"%>
-
 <!DOCTYPE html>
 <html>
+<head>
+<style>
+body {
+    background-color: lightblue;
+}
+</style>
+</head>
   <head>
     <title>Patient Search</title>
     </head>
   <body>
     <h1>Search Bar</h1>
-    <%@ include file="patientSearch.html" %>
+    <body>
+      
+      <form id="form" method="post" action="patientSearchProcess.jsp" >
+        <div class="form-group col-md-6">
+            <label>Patient ID</label>
+            <input type="text" name="patientID" idPatient="patientID" placeholder="Patient ID"></center>
+            <input type="text" name="patientName" firstName="Patient Name" placeholder="Name"></center>
+            <input type="submit">
+        </div>
+      </form>
+    </body>
+
     <%
         String db = "hospibase";
         String user; // assumes database name is the same as username
@@ -41,7 +58,27 @@
                 out.write("<th>Medication</th>");
                 out.write("<th>Medical History</th>");
               out.write("<tr>");
+            
+            // compares user input to id of patients
+            pst = con.prepareStatement("SELECT * FROM hospibase.Patient WHERE firstName = ? OR idPatient = ? xor (firstName = ? AND idPatient = ? )");
+            pst.setString(1, patientName);
+            pst.setString(2, patientID);
+            pst.setString(3, patientName);
+            pst.setString(4, patientID);
+            rs = pst.executeQuery();
+            %>
+              <style>
+              table {
+                width: 100%;
+              }
 
+              th, td {
+                text-align: center;
+                padding: 5px;
+              }
+              </style>
+              <%
+              
             while(rs.next())
            {
             int id = rs.getInt(1);

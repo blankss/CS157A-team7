@@ -2,6 +2,16 @@
 <%@ page import="java.util.*"%>
 <%@ page import="java.lang.*"%>
 <html>
+<head>
+<style>
+body {
+    background-image: url("patientPay.jpg");
+    background-size: cover;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+</style>
+</head>
   <head>
     <title>Patient Payment</title>
     </head>
@@ -100,7 +110,24 @@
 
             //display patient bills
             ResultSet rs = stmt.executeQuery("SELECT * FROM hospibase.PatientBill WHERE idPatient = " + patientIdParam + ";");
-            out.write("<table border=\"5\">");
+
+              %>
+              <style>
+              table {
+                width: 100%;
+              }
+
+              th, td {
+                text-align: center;
+                padding: 5px;
+              }
+
+              td:nth-child(odd){
+                background-color: #CACEF9;
+              }
+              </style>
+              <%
+            out.write("<table border=\"1\" bgcolor=\"#939CF9\">");
             out.write("<tr>");
             out.write("<th>idBill</th>");
             out.write("<th>medicationCost</th>");
@@ -141,7 +168,9 @@
           
             //display patient bills
             rs = stmt.executeQuery("SELECT * FROM hospibase.PatientBill WHERE idPatient = " + patientIdParam + ";");
-            out.write("<table border=\"5\">");
+            out.write("</table>");
+            out.write("<br>");
+            out.write("<table border=\"1\" bgcolor=\"#939CF9\">");
 
             out.write("<tr>");
             out.write("<th>idBill</th>");

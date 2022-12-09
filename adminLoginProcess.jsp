@@ -1,5 +1,15 @@
 <%@ page import="java.sql.*"%>
 <html>
+<head>
+<style>
+body {
+    background-image: url("adminLogin.jpg");
+    background-size: cover;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+</style>
+</head>
   <head>
     <title>Admin Login</title>
     </head>
@@ -76,6 +86,9 @@
               out.write("<input type=button onClick=parent.open('removeUser.html') value='Remove A User'>");
               out.write("<br>");
               out.write("<br>");
+            %>
+            <button onclick="window.location.href=('landingPage.html')"> Logout to Landing Page</button>
+            <%
             }
             rs.close();
             stmt.close();

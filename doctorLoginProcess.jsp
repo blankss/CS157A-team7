@@ -3,6 +3,16 @@
 <%@ page import="java.time.LocalDateTime"%>
 <%@ page import="java.time.format.DateTimeFormatter"%>
 <html>
+<head>
+<style>
+body {
+  background-image: url("doctorLoggedin.jpg");
+  background-size: cover;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+</style>
+</head>
   <head>
     <title>Doctor Login</title>
     </head>
@@ -57,10 +67,13 @@
 
               out.write("<input type=button onClick=parent.open('doctorUpdate.html') value='Update Your Information'>");
               out.write("<input type=button onClick=parent.open('sortPatient.jsp') value='View Hospital Patients' style='margin-left:16px'>");
+              %>
+              <input type=button onClick="window.location.href=('landingPage.html')" value="Logout to Landing Page" style="margin-left:16px">
+            <%
               out.write("<br>");
               out.write("<br>");
 
-              out.write("<table border=\"1\">");
+              out.write("<table border=\"1\" bgcolor=\"lightblue\">");
 
               out.write("<tr>");
                 out.write("<th>Doctor ID</th>");
@@ -80,10 +93,25 @@
               out.write("</table>");
 
               out.write("<br>");
-              out.write("<br>");
+              
+               %>
+              <style>
+              table {
+                width: 100%;
+              }
 
+              th, td {
+                text-align: center;
+                padding: 5px;
+              }
 
-              out.write("<table border=\"1\">");
+              tr:nth-child(even) {
+                background-color: aliceblue;
+              }
+              </style>
+              <%
+
+              out.write("<table border=\"1\" bgcolor=\"lightblue\">");
 
               out.write("<tr>");
                 out.write("<th>Patient's First Name</th>");
@@ -112,7 +140,7 @@
               out.write("</table>");
               out.write("<br>");
 
-              out.write("<table border=\"1\">");
+              out.write("<table border=\"1\" bgcolor=\"lightblue\">");
 
               out.write("<tr>");
                 out.write("<th>Patient's Name</th>");
