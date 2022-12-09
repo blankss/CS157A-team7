@@ -49,6 +49,7 @@ body {
               out.write("<h3>Admin logged in instance success. </h3>");
               out.write("Please choose an administrative action to do below.");
               out.write("<br>");
+              out.write("<br>");
               out.write("<input type=button onClick=parent.open('updateAdmin.html') value='Update Admin Information'>");
               out.write("<br>");
               out.write("<br>");
@@ -58,7 +59,10 @@ body {
               out.write("<input type=button onClick=parent.open('patientSearchProcess.jsp') value='Search For Patient File'>");
               out.write("<br>");
               out.write("<br>");
-              out.write("<input type=button onClick=parent.open('patientFilter.html') value='Filter For Patient File'>");
+              out.write("<input type=button onClick=parent.open('searchDoctor.jsp') value='Search For Doctor'>");
+              out.write("<br>");
+              out.write("<br>");
+              out.write("<input type=button onClick=parent.open('patientFilter.jsp') value='Filter For Patient File'>");
               out.write("<br>");
               out.write("<br>");
               out.write("<input type=button onClick=parent.open('addMedication.html') value='Add Medication to Inventory'>");
@@ -70,17 +74,16 @@ body {
               out.write("<input type=button onClick=parent.open('addEquipment.html') value='Add Equipment to Inventory'>");
               out.write("<br>");
               out.write("<br>");
-              out.write("<input type=button onClick=parent.open('/updatePatient.html') value='Update Patient Page'>");
+              out.write("<input type=button onClick=parent.open('updatePatient.html') value='Update Patient Page'>");
               out.write("<br>");
               out.write("<br>");
-              out.write("<input type=button onClick=parent.open('/ViewMedicalHistory.jsp') value='View Medical History'");
+              out.write("<input type=button onClick=parent.open('ViewMedicalHistory.jsp') value='View Medical History'>");
               out.write("<br>");
               out.write("<br>");
+              out.write("<input type=button onClick=parent.open('ViewHealthplans.jsp') value='View Available Health plans'>");
               out.write("<br>");
-              out.write("<input type=button onClick=parent.open('/ViewHealthplans.jsp') value='View Available Health plans'>");
               out.write("<br>");
-              out.write("<br>");
-              out.write("<input type=button onClick=parent.open('/removeUser.html') value='Remove A User'>");
+              out.write("<input type=button onClick=parent.open('removeUser.html') value='Remove A User'>");
               out.write("<br>");
               out.write("<br>");
             %>

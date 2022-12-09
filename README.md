@@ -2,6 +2,36 @@
 ## Code Review 1: Login and registration barebones complete. Search in progress. Temporarily created most of tables needed for project.
 ## Code Review 2: Appointment complete, search complete, update patients information complete. Doctors update in progress, filter in progress, and patient bill in progress. Tables/schema DDL statements reflect our ERD.
 
+Image References:
+
+https://www.pexels.com/photo/medical-stethoscope-with-red-paper-heart-on-white-surface-4386467/
+
+https://www.logolynx.com/topic/red+cross#&gid=1&pid=2
+
+https://www.cleanpng.com/png-lean-manufacturing-industry-microsoft-dynamics-365-6345668/
+
+https://www.kindpng.com/imgv/ixmTxRo_registration-logo-hd-png-download/
+
+https://www.pexels.com/photo/person-holding-white-printer-paper-4226138/
+
+http://clipart-library.com/clipart/Doctor-Symbol-Caduceus-PNG-Picture.htm
+
+https://www.pexels.com/photo/set-of-white-pills-on-yellow-background-4210661/
+
+https://www.pexels.com/photo/syringe-and-pills-on-blue-background-3786159/
+
+https://www.pexels.com/photo/face-mask-on-blue-background-3786153/
+
+https://www.pexels.com/photo/grayscale-photo-of-an-empty-hallway-6234634/
+
+https://www.pexels.com/photo/heart-rate-monitor-3845129/
+
+https://www.pexels.com/photo/person-holding-syringe-3786215/
+
+https://www.pexels.com/photo/person-in-white-dress-shirt-writing-on-white-paper-7578802/
+
+
+
 CREATE SCHEMA hospibase ;
 
 CREATE TABLE hospibase.Doctor ( idDoctor INT NOT NULL AUTO_INCREMENT, firstName VARCHAR(50) NULL, lastName VARCHAR(50) NULL, specialization VARCHAR(60) NULL, username VARCHAR(45) NULL, password VARCHAR(45) NULL, PRIMARY KEY (idDoctor), UNIQUE INDEX username_UNIQUE (username ASC) VISIBLE);

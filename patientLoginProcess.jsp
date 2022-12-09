@@ -92,7 +92,6 @@ body {
 
               out.write("<table border=\"1\" bgcolor=\"#939CF9\">");
 
-
               out.write("<tr>");
               out.write("<th>Patient ID</th>");
               out.write("<th>First Name</th>");

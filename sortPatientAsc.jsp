@@ -46,7 +46,7 @@ body {
               </style>
               <%
             out.write("<table border=\"1\" bgcolor=\"#4ACC88\">");
-
+            
             out.write("<tr>");
               out.write("<th>Patient ID</a></th>");
               out.write("<th><a href='sortPatientDesc.jsp'>First Name</a></th>");

@@ -65,7 +65,7 @@ body {
               out.write("<h2>Hello, Dr. " + doctorFirstName + "</h2><br>");
               out.write("<h3>Your Information:</h3>");
 
-              out.write("<input type=button onClick=parent.open('/doctorUpdate.html') value='Update Your Information'>");
+              out.write("<input type=button onClick=parent.open('doctorUpdate.html') value='Update Your Information'>");
               out.write("<input type=button onClick=parent.open('sortPatient.jsp') value='View Hospital Patients' style='margin-left:16px'>");
               %>
               <input type=button onClick="window.location.href=('landingPage.html')" value="Logout to Landing Page" style="margin-left:16px">
@@ -93,7 +93,7 @@ body {
               out.write("</table>");
 
               out.write("<br>");
-
+              
                %>
               <style>
               table {
