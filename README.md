@@ -24,6 +24,14 @@ https://www.pexels.com/photo/face-mask-on-blue-background-3786153/
 
 https://www.pexels.com/photo/grayscale-photo-of-an-empty-hallway-6234634/
 
+https://www.pexels.com/photo/heart-rate-monitor-3845129/
+
+https://www.pexels.com/photo/person-holding-syringe-3786215/
+
+https://www.pexels.com/photo/person-in-white-dress-shirt-writing-on-white-paper-7578802/
+
+
+
 CREATE SCHEMA hospibase ;
 
 CREATE TABLE hospibase.Doctor ( idDoctor INT NOT NULL AUTO_INCREMENT, firstName VARCHAR(50) NULL, lastName VARCHAR(50) NULL, specialization VARCHAR(60) NULL, username VARCHAR(45) NULL, password VARCHAR(45) NULL, PRIMARY KEY (idDoctor), UNIQUE INDEX username_UNIQUE (username ASC) VISIBLE);
