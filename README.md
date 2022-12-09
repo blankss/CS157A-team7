@@ -3,6 +3,7 @@
 ## Code Review 2: Appointment complete, search complete, update patients information complete. Doctors update in progress, filter in progress, and patient bill in progress. Tables/schema DDL statements reflect our ERD.
 
 Image References:
+
 https://www.pexels.com/photo/medical-stethoscope-with-red-paper-heart-on-white-surface-4386467/
 
 https://www.logolynx.com/topic/red+cross#&gid=1&pid=2
@@ -20,6 +21,8 @@ https://www.pexels.com/photo/set-of-white-pills-on-yellow-background-4210661/
 https://www.pexels.com/photo/syringe-and-pills-on-blue-background-3786159/
 
 https://www.pexels.com/photo/face-mask-on-blue-background-3786153/
+
+https://www.pexels.com/photo/grayscale-photo-of-an-empty-hallway-6234634/
 
 CREATE SCHEMA hospibase ;
 
