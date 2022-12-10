@@ -40,12 +40,10 @@
                 " FROM Patient" + 
                 " GROUP BY idDoctor)");
             setDoctor.next();
-<<<<<<< HEAD
+            // we get the doctor id that was least used
             int doctorID = setDoctor.getInt("idDoctor");
 
-=======
-            int doctorID = setDoctor.getInt("doctorID");
->>>>>>> 35420700071616420bf2d9d394dddad20b3be4ca
+            //int doctorID = setDoctor.getInt("doctorID");
             //don't forget that VALUES you need single quotes to denote variable name
             int res = stmt.executeUpdate("INSERT INTO Patient(firstName,lastName,username,password, idDoctor) VALUES('" + firstNameParam + "','" + lastNameParam + "','" + usernameParam + "','" + passwordParam + "','" + doctorID + "')");
             out.println("Successful registration, please login at: <a href='patientLogin.html'>Login</a>");
