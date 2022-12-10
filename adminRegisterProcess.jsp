@@ -45,9 +45,12 @@
             int res = stmt.executeUpdate("INSERT INTO hospitaladministrators(adminName,username,password, loggedin) VALUES('" + nameParam + "','" + usernameParam + "','" + passwordParam + "','" + 1 + "')");
             out.println("Successful registration, please login at: <a href='adminLogin.html'>Login</a>");
 
+            if (doctorBool == null)
+              return;
+
             if (doctorBool.equals("True")) {
               out.write("<br>");
-              int doctorRes = stmt1.executeUpdate("INSERT INTO Doctor(firstName, username, password) VALUES('" + nameParam + "', '" + usernameParam + "','" + passwordParam + "')");
+              int doctorRes = stmt1.executeUpdate("INSERT INTO Doctor(firstName) VALUES('" + nameParam + "')");
               out.write("Doctor name added. Please input your information when you go update. <a href='doctorUpdate.html'>Doctor Update</a>");
             }
 
